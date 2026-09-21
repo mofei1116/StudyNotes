@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"c46754643ad57944","type":"file","file":"网课资料/数据结构与算法（陈越/排序/快速排序/attachments/Pasted image 20251109113308.png","x":-280,"y":-280,"width":400,"height":246},
+		{"id":"d258f3c741bd60f3","type":"file","file":"网课资料/数据结构与算法（陈越/排序/快速排序/attachments/Pasted image 20251109114510.png","x":-280,"y":0,"width":399,"height":286},
+		{"id":"7faa8f497df68376","type":"text","text":"将剩下的元素和pivot比较需要遍历，时间复杂度O(n)","x":180,"y":113,"width":250,"height":60},
+		{"id":"6a46442885a708c5","type":"text","text":"选出了pivot并划分好了子集后pivot就被一次性地放到了正确的位置上，不会再移动","x":180,"y":240,"width":286,"height":93},
+		{"id":"54dddf1cc78b7e7f","type":"text","text":"最好情况时间复杂度递推公式：T(n)=2 * T(n/2)+O(n)","x":-239,"y":360,"width":318,"height":75}
+	],
+	"edges":[
+		{"id":"d50119bdb30b6252","fromNode":"d258f3c741bd60f3","fromSide":"bottom","toNode":"54dddf1cc78b7e7f","toSide":"top"},
+		{"id":"78b634ecbc4f167c","fromNode":"d258f3c741bd60f3","fromSide":"right","toNode":"7faa8f497df68376","toSide":"left"},
+		{"id":"666e4c17110c5aaf","fromNode":"d258f3c741bd60f3","fromSide":"right","toNode":"6a46442885a708c5","toSide":"left"}
+	]
+}

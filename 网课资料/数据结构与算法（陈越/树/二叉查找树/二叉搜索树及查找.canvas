@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"c480df86fb409659","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉查找树/attachments/Pasted image 20251018120546.png","x":-380,"y":-360,"width":522,"height":220},
+		{"id":"be309d731069feb8","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉查找树/attachments/Pasted image 20251018124236.png","x":-380,"y":280,"width":480,"height":315},
+		{"id":"a5c47ad3f4e7d3f5","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉查找树/attachments/Pasted image 20251018124458.png","x":-380,"y":640,"width":460,"height":299},
+		{"id":"13e2058742bf4d19","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉查找树/attachments/Pasted image 20251018124604.png","x":-380,"y":1000,"width":560,"height":281},
+		{"id":"bafa6d427926d394","type":"text","text":"查找的效率决定于树的高度","x":220,"y":1116,"width":248,"height":50},
+		{"id":"1050337f84314ca3","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉查找树/attachments/Pasted image 20251018124848.png","x":-380,"y":1320,"width":452,"height":300},
+		{"id":"a7044f34370efe15","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉查找树/attachments/Pasted image 20251018125120.png","x":-380,"y":1680,"width":500,"height":341},
+		{"id":"f25c990df6614583","type":"text","text":"查找：特定key，最小值，最大值","x":241,"y":309,"width":259,"height":71},
+		{"id":"9b644f33f14667e2","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉查找树/attachments/Pasted image 20251018120725.png","x":-380,"y":-100,"width":500,"height":314}
+	],
+	"edges":[
+		{"id":"fb696cdf2459dc2d","fromNode":"13e2058742bf4d19","fromSide":"right","toNode":"bafa6d427926d394","toSide":"left"},
+		{"id":"4936fb2c9c99e9b6","fromNode":"be309d731069feb8","fromSide":"right","toNode":"f25c990df6614583","toSide":"left"}
+	]
+}

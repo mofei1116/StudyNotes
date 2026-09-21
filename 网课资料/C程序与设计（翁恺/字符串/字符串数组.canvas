@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"e3527be7a41afbd9","type":"text","text":"字符串数组两种形式：","x":-360,"y":-220,"width":206,"height":60},
+		{"id":"05f47e7e0934b3cd","type":"text","text":"char *a[]","x":-360,"y":-92,"width":129,"height":56},
+		{"id":"fe245d9a42f8eb17","type":"text","text":"char a[][n]={\n“Hello”,\n\"World\",\n}","x":-140,"y":-92,"width":176,"height":136},
+		{"id":"08fb7a1e0ffb46c1","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906222301.png","x":-364,"y":80,"width":400,"height":154},
+		{"id":"5448983e57aab7ad","type":"text","text":"#include <stdio.h>\n\n  \n\nint main(int argc, char const *argv[]) {//argc:字符个数\n\n    int i;\n\n    for (i = 0;i < argc;i++) {\n\n        printf(\"%d:%s\\n\", i, argv[i]);\n\n    };\n\n    return 0;\n\n} ","x":-364,"y":280,"width":400,"height":380}
+	],
+	"edges":[
+		{"id":"2d0cc7cb5e639449","fromNode":"e3527be7a41afbd9","fromSide":"bottom","toNode":"05f47e7e0934b3cd","toSide":"top"},
+		{"id":"80a7a98f45b9d22b","fromNode":"e3527be7a41afbd9","fromSide":"bottom","toNode":"fe245d9a42f8eb17","toSide":"top"},
+		{"id":"2ee42ff1650743b5","fromNode":"05f47e7e0934b3cd","fromSide":"bottom","toNode":"08fb7a1e0ffb46c1","toSide":"top"},
+		{"id":"1f795d10e6b1d059","fromNode":"fe245d9a42f8eb17","fromSide":"bottom","toNode":"08fb7a1e0ffb46c1","toSide":"top"}
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"59ad676e0605f40e","type":"file","file":"网课资料/数据结构与算法（陈越/排序/简单排序（冒泡，插入）/attachments/Pasted image 20251107215735.png","x":-260,"y":-320,"width":400,"height":359},
+		{"id":"1d6d443a25f6dc55","type":"text","text":"内部排序：所有数据一次性储存在内存中","x":200,"y":-140,"width":233,"height":67}
+	],
+	"edges":[
+		{"id":"472c78a9f9c46703","fromNode":"59ad676e0605f40e","fromSide":"right","toNode":"1d6d443a25f6dc55","toSide":"left"}
+	]
+}

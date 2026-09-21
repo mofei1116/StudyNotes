@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"88321bf177e54365","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251013230959.png","x":-400,"y":-420,"width":419,"height":326},
+		{"id":"234a64db3662ea09","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251013232012.png","x":-400,"y":-40,"width":460,"height":286},
+		{"id":"e5eda1eb34c8382f","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251013232100.png","x":-400,"y":280,"width":459,"height":314},
+		{"id":"8b0c0c1bb24e44cb","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251013233244.png","x":-400,"y":640,"width":459,"height":310},
+		{"id":"0aa9a75801c835f3","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251013233403.png","x":100,"y":721,"width":400,"height":148},
+		{"id":"044b390b2ec4bfa9","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251013233713.png","x":-400,"y":1000,"width":492,"height":340}
+	],
+	"edges":[
+		{"id":"c0b912b71d7362b2","fromNode":"8b0c0c1bb24e44cb","fromSide":"right","toNode":"0aa9a75801c835f3","toSide":"left"}
+	]
+}

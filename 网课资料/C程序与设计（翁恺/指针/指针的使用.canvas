@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"831bd4c24a6b1b05","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250905174603.png","x":-300,"y":-340,"width":320,"height":223},
+		{"id":"188eeda757b00408","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250905175307.png","x":-300,"y":-80,"width":360,"height":196},
+		{"id":"9f0d7e2b08620a2b","type":"text","text":"定义了指针变量还需指向某变量才能使用这个指针","x":-300,"y":460,"width":280,"height":60},
+		{"id":"9aedea584de10bb3","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250905180024.png","x":-300,"y":140,"width":399,"height":279}
+	],
+	"edges":[]
+}

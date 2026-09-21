@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"40c58db88a71db3e","type":"text","text":"B：桶的个数\nP：排序次数","x":120,"y":60,"width":140,"height":60},
+		{"id":"ba1b2767dae77baf","type":"text","text":"排好一次后按顺序收集每个元素","x":147,"y":-40,"width":243,"height":60},
+		{"id":"0086355ba43f7874","type":"text","text":"十进制的基数是10","x":120,"y":-120,"width":189,"height":50},
+		{"id":"69069ae797d558f5","type":"file","file":"网课资料/数据结构与算法（陈越/排序/基数排序/attachments/Pasted image 20251110163914.png","x":-340,"y":-95,"width":400,"height":286},
+		{"id":"e4ba9f94d8b2bbcf","type":"text","text":"基数排序是稳定的算法","x":-340,"y":240,"width":216,"height":50}
+	],
+	"edges":[
+		{"id":"bd9fa913fbe26a18","fromNode":"69069ae797d558f5","fromSide":"right","toNode":"ba1b2767dae77baf","toSide":"left"},
+		{"id":"cfb925a59c82666b","fromNode":"69069ae797d558f5","fromSide":"right","toNode":"40c58db88a71db3e","toSide":"left"},
+		{"id":"3d59144421b37b17","fromNode":"69069ae797d558f5","fromSide":"right","toNode":"0086355ba43f7874","toSide":"left"},
+		{"id":"1cb4ea7edf0dcde8","fromNode":"69069ae797d558f5","fromSide":"bottom","toNode":"e4ba9f94d8b2bbcf","toSide":"top"}
+	]
+}

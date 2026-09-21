@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"d500a89de5ceacd3","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250826201437.png","x":-360,"y":-360,"width":400,"height":278},
+		{"id":"d7fb7a3db0d9bdbd","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250826201750.png","x":-360,"y":-40,"width":399,"height":255},
+		{"id":"be96d6a431dd1287","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250826201949.png","x":-360,"y":260,"width":400,"height":258},
+		{"id":"a2a88dd32f597f6c","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250826202520.png","x":-360,"y":560,"width":400,"height":227},
+		{"id":"c1b661cd3ce98a3d","type":"text","text":"不希望使用嵌套表达式","x":80,"y":0,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"f460fda858adfb62","fromNode":"d7fb7a3db0d9bdbd","fromSide":"right","toNode":"c1b661cd3ce98a3d","toSide":"left"}
+	]
+}

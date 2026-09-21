@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"03d3f3c2b947410c","type":"file","file":"网课资料/数据结构与算法（陈越/树/应用实例/attachments/Pasted image 20251015225439.png","x":-320,"y":-400,"width":427,"height":320},
+		{"id":"e00fbb7a78372422","type":"file","file":"网课资料/数据结构与算法（陈越/树/应用实例/attachments/Pasted image 20251015230438.png","x":-320,"y":-40,"width":414,"height":340},
+		{"id":"87b3e83587be0910","type":"text","text":"根节点不一定在第一个","x":160,"y":60,"width":220,"height":50},
+		{"id":"95cdae51c28c8e98","type":"file","file":"网课资料/数据结构与算法（陈越/树/应用实例/attachments/Pasted image 20251015230754.png","x":-320,"y":340,"width":180,"height":148},
+		{"id":"5478123c2c1f0ee2","type":"file","file":"网课资料/数据结构与算法（陈越/树/应用实例/attachments/Pasted image 20251015231813.png","x":-320,"y":540,"width":466,"height":280},
+		{"id":"e24281dbd7de3158","type":"file","file":"网课资料/数据结构与算法（陈越/树/应用实例/attachments/Pasted image 20251015233713.png","x":-320,"y":880,"width":466,"height":296},
+		{"id":"241ef47607bd4af4","type":"file","file":"网课资料/数据结构与算法（陈越/树/应用实例/attachments/Pasted image 20251016000727.png","x":-320,"y":1220,"width":462,"height":300},
+		{"id":"91bbc1dbb34f63a5","type":"file","file":"网课资料/数据结构与算法（陈越/树/应用实例/attachments/Pasted image 20251016000749.png","x":-320,"y":1560,"width":440,"height":321},
+		{"id":"15c1b3f3a4d43e7a","type":"file","file":"网课资料/数据结构与算法（陈越/树/应用实例/attachments/Pasted image 20251016120231.png","x":-320,"y":1940,"width":462,"height":263},
+		{"id":"1232ec9aadc7e7de","type":"file","file":"网课资料/数据结构与算法（陈越/树/应用实例/attachments/Pasted image 20251016120418.png","x":-320,"y":2260,"width":490,"height":280},
+		{"id":"a6b06b2ed173bd74","type":"text","text":"遍历left和right，下标1没有用过，所以下标1对应的A是根节点","x":220,"y":634,"width":269,"height":93}
+	],
+	"edges":[
+		{"id":"845893f65ddf8de6","fromNode":"e00fbb7a78372422","fromSide":"right","toNode":"87b3e83587be0910","toSide":"left"},
+		{"id":"3ca713cd3f84d30d","fromNode":"5478123c2c1f0ee2","fromSide":"right","toNode":"a6b06b2ed173bd74","toSide":"left"}
+	]
+}

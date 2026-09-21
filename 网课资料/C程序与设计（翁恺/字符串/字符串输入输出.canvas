@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"767ebf41a32e5297","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906203455.png","x":-320,"y":-300,"width":400,"height":278},
+		{"id":"8cc31a0aa9351a3f","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906205159.png","x":-320,"y":20,"width":400,"height":277},
+		{"id":"14b3463de9ef5509","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906211630.png","x":-320,"y":340,"width":399,"height":289},
+		{"id":"e1c22d575007cd92","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906211903.png","x":-320,"y":680,"width":400,"height":261},
+		{"id":"e7fd75344cf76637","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906212507.png","x":-320,"y":980,"width":400,"height":287},
+		{"id":"11e01630d5976927","type":"text","text":"当string指向一个有害地址时程序会崩溃","x":140,"y":770,"width":300,"height":82}
+	],
+	"edges":[
+		{"id":"d447cfc9ab784588","fromNode":"e1c22d575007cd92","fromSide":"right","toNode":"11e01630d5976927","toSide":"left"}
+	]
+}

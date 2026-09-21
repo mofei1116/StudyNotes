@@ -1,0 +1,18 @@
+{
+	"nodes":[
+		{"id":"b501547054b9fa6d","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907150145.png","x":-360,"y":-340,"width":424,"height":300},
+		{"id":"95c19596febb0aaf","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907150604.png","x":80,"y":20,"width":324,"height":134},
+		{"id":"37bdc8e6108cb4c4","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907150621.png","x":-360,"y":0,"width":345,"height":400},
+		{"id":"6127246a13225c2e","type":"text","text":"套路：自动计数的枚举（最后一个变量）","x":-357,"y":440,"width":340,"height":50},
+		{"id":"e5c6ac6370b447b1","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907151446.png","x":-360,"y":540,"width":390,"height":400},
+		{"id":"2afc33d4528600d4","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907151502.png","x":120,"y":714,"width":381,"height":50},
+		{"id":"cb127c4eb31d00ab","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907151626.png","x":-360,"y":980,"width":400,"height":291},
+		{"id":"dcc9b55c6763afb1","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907151810.png","x":-360,"y":1320,"width":519,"height":300},
+		{"id":"f0e79cfcb2e64a32","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907152001.png","x":-360,"y":1660,"width":400,"height":272}
+	],
+	"edges":[
+		{"id":"ac8c3bbf0a32cf40","fromNode":"37bdc8e6108cb4c4","fromSide":"right","toNode":"95c19596febb0aaf","toSide":"left"},
+		{"id":"ac64e9ef75d07cd8","fromNode":"6127246a13225c2e","fromSide":"bottom","toNode":"e5c6ac6370b447b1","toSide":"top"},
+		{"id":"bbde9d8fe642a933","fromNode":"e5c6ac6370b447b1","fromSide":"right","toNode":"2afc33d4528600d4","toSide":"left"}
+	]
+}

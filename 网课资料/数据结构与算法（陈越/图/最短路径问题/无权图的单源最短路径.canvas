@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"daf8311700bb6299","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/Pasted image 20251103144336.png","x":-300,"y":-320,"width":399,"height":286},
+		{"id":"f6da5351bcfcccc1","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/Pasted image 20251103145341.png","x":-301,"y":20,"width":420,"height":290},
+		{"id":"4f95f1e956672942","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/Pasted image 20251103151019.png","x":-301,"y":360,"width":400,"height":299},
+		{"id":"cab14e7f430e411b","type":"text","text":"dist除了S全部初始化为-1","x":180,"y":135,"width":200,"height":60}
+	],
+	"edges":[
+		{"id":"fc05e37e08adb0a9","fromNode":"f6da5351bcfcccc1","fromSide":"right","toNode":"cab14e7f430e411b","toSide":"left"}
+	]
+}

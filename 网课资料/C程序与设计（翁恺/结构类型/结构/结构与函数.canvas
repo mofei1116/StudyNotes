@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"2e9f670773aa2b9e","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250912091552.png","x":-310,"y":-20,"width":363,"height":300},
+		{"id":"b9d042fc02b89197","type":"text","text":"当structure比较大时用指针传递更好\n","x":-310,"y":340,"width":250,"height":60},
+		{"id":"8908b89f097ecebd","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250912085832.png","x":-310,"y":-340,"width":400,"height":267},
+		{"id":"d709dd4da77ada7d","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250912092456.png","x":-308,"y":460,"width":360,"height":281}
+	],
+	"edges":[
+		{"id":"80516e94522c0d61","fromNode":"2e9f670773aa2b9e","fromSide":"bottom","toNode":"b9d042fc02b89197","toSide":"top"},
+		{"id":"7afea7106880a36d","fromNode":"b9d042fc02b89197","fromSide":"bottom","toNode":"d709dd4da77ada7d","toSide":"top"}
+	]
+}

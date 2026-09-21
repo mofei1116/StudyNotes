@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"6a914b451a2a148c","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/大程序结构/attachments/Pasted image 20250914130954.png","x":-320,"y":-340,"width":400,"height":228},
+		{"id":"83b189dd3f9f4648","type":"text","text":"比如#include \"max.h\"","x":140,"y":-180,"width":216,"height":50},
+		{"id":"5de45eb66e7b2d65","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/大程序结构/attachments/Pasted image 20250914132109.png","x":-320,"y":-60,"width":400,"height":260},
+		{"id":"4684908a88598304","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/大程序结构/attachments/Pasted image 20250914132326.png","x":-320,"y":240,"width":399,"height":286},
+		{"id":"d4623e8274c976fa","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/大程序结构/attachments/Pasted image 20250914132611.png","x":-320,"y":554,"width":400,"height":266},
+		{"id":"6baeda080a078d02","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/大程序结构/attachments/Pasted image 20250914133133.png","x":-320,"y":860,"width":400,"height":244},
+		{"id":"3bcc47af248a1d35","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/大程序结构/attachments/Pasted image 20250914134021.png","x":-320,"y":1160,"width":400,"height":244}
+	],
+	"edges":[
+		{"id":"4f143ce200dbd5bf","fromNode":"6a914b451a2a148c","fromSide":"right","toNode":"83b189dd3f9f4648","toSide":"left"}
+	]
+}

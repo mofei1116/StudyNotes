@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"1b7c13760f12da0d","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/PixPin_2025-11-04_20-45-18.png","x":-380,"y":-360,"width":420,"height":239},
+		{"id":"e9339375250de640","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/PixPin_2025-11-04_20-57-58.png","x":-380,"y":-60,"width":442,"height":280},
+		{"id":"af317b8e194ca527","type":"text","text":"顶点到自己本身初始化为0，到邻接点初始化为对应权值，其余初始化为正无穷","x":120,"y":36,"width":270,"height":89},
+		{"id":"2c7ffc71c12fbf5f","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/PixPin_2025-11-04_21-01-16.png","x":-380,"y":280,"width":429,"height":300},
+		{"id":"7341bb8310bc28c3","type":"text","text":"递归输出path[i][i]：\n输出path[i][k]，输出k，输出path[k][j]","x":120,"y":384,"width":360,"height":92}
+	],
+	"edges":[
+		{"id":"4b093e27fe562fc1","fromNode":"e9339375250de640","fromSide":"right","toNode":"af317b8e194ca527","toSide":"left"},
+		{"id":"4dd6b4451deec35d","fromNode":"2c7ffc71c12fbf5f","fromSide":"right","toNode":"7341bb8310bc28c3","toSide":"left"}
+	]
+}

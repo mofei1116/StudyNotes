@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"e26d0f1bb0601b9f","type":"file","file":"网课资料/数据结构与算法（陈越/排序/快速排序/attachments/Pasted image 20251109122023.png","x":-220,"y":-300,"width":400,"height":167},
+		{"id":"311288947366f6fe","type":"file","file":"网课资料/数据结构与算法（陈越/排序/快速排序/attachments/Pasted image 20251109122002.png","x":-220,"y":-60,"width":400,"height":249},
+		{"id":"3560d0f51aecfc92","type":"text","text":"大于pivot的在右边，小于pivot的在左边","x":222,"y":-249,"width":266,"height":65},
+		{"id":"25f8ebc6986c4aca","type":"file","file":"网课资料/数据结构与算法（陈越/排序/快速排序/attachments/Pasted image 20251109122549.png","x":-220,"y":240,"width":442,"height":300},
+		{"id":"98c2cff91563dd83","type":"text","text":"停下来交换：可能会有很多无意义的交换，但最后主元会被放到靠中间的位置\n继续移动指针：省掉一些无意义的交换，但最后主元会被放到端点","x":240,"y":-15,"width":313,"height":159}
+	],
+	"edges":[
+		{"id":"db76e679208b3ba1","fromNode":"311288947366f6fe","fromSide":"right","toNode":"98c2cff91563dd83","toSide":"left"},
+		{"id":"8d176a6f60fef93d","fromNode":"e26d0f1bb0601b9f","fromSide":"right","toNode":"3560d0f51aecfc92","toSide":"left"}
+	]
+}

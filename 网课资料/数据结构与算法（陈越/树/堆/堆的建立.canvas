@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"0454893658608484","type":"file","file":"网课资料/数据结构与算法（陈越/树/堆/attachments/Pasted image 20251021151855.png","x":-260,"y":-260,"width":461,"height":240},
+		{"id":"88a9774929136c9f","type":"file","file":"网课资料/数据结构与算法（陈越/树/堆/attachments/Pasted image 20251021152631.png","x":-260,"y":40,"width":399,"height":286},
+		{"id":"1533f69e437ea735","type":"text","text":"堆的调整前提：左子树和右子树都是堆，所以先从底下第一个有儿子的节点（43）开始调整","x":180,"y":134,"width":336,"height":99},
+		{"id":"532b7ebe5a763379","type":"text","text":"需要挪动元素的次数等于树中所有节点的高度和（叶节点的高度为0）","x":-213,"y":380,"width":306,"height":77}
+	],
+	"edges":[
+		{"id":"e706ed770fdf64da","fromNode":"88a9774929136c9f","fromSide":"right","toNode":"1533f69e437ea735","toSide":"left"},
+		{"id":"78277d35fd109e23","fromNode":"88a9774929136c9f","fromSide":"bottom","toNode":"532b7ebe5a763379","toSide":"top"}
+	]
+}

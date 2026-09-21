@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"2ac6e29646d45d52","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/队列/attachments/Pasted image 20251009091741.png","x":-340,"y":-340,"width":501,"height":240},
+		{"id":"76f6db320e159854","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/队列/attachments/Pasted image 20251009091916.png","x":-340,"y":-60,"width":501,"height":292},
+		{"id":"e9aa0420bb31c578","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/队列/attachments/Pasted image 20251009092455.png","x":-340,"y":280,"width":479,"height":328},
+		{"id":"f043e95747048035","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/队列/attachments/Pasted image 20251009093220.png","x":-340,"y":640,"width":480,"height":331},
+		{"id":"6081eb2a7f0d08db","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/队列/attachments/Pasted image 20251009111511.png","x":-340,"y":1020,"width":479,"height":322},
+		{"id":"88aebfd3efef2281","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/队列/attachments/Pasted image 20251009112158.png","x":-340,"y":1380,"width":480,"height":345},
+		{"id":"060e9a2e6c10c42f","type":"text","text":"对于大小为n的数组，front和rear的差距有n种情况，队列的状态有n+1中情况，所以无法用front和rear的差距区分队列的状态","x":220,"y":740,"width":300,"height":132}
+	],
+	"edges":[
+		{"id":"83e8622fea35560c","fromNode":"f043e95747048035","fromSide":"right","toNode":"060e9a2e6c10c42f","toSide":"left"}
+	]
+}

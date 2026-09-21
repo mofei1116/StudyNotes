@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"f5bdcbf049ea9c59","type":"file","file":"网课资料/数据结构与算法（陈越/基本概念/attachments/Pasted image 20250928104854.png","x":-360,"y":-360,"width":490,"height":360},
+		{"id":"0c406e41ff9a3fc4","type":"file","file":"网课资料/数据结构与算法（陈越/基本概念/attachments/Pasted image 20250928105112.png","x":-360,"y":40,"width":542,"height":320},
+		{"id":"de59b00906e3098c","type":"file","file":"网课资料/数据结构与算法（陈越/基本概念/attachments/Pasted image 20250928111114.png","x":-360,"y":400,"width":480,"height":342},
+		{"id":"e59a562f912d324c","type":"file","file":"网课资料/数据结构与算法（陈越/基本概念/attachments/Pasted image 20250928113358.png","x":-360,"y":800,"width":496,"height":340},
+		{"id":"a221e44406b6867a","type":"text","text":"分界线左边有个最大子列和，右边有个最大子列和，跨越边界也有个最大子列和，处理跨边界的最大子列和时，从分界线先往左扫描，再往右扫描，然后相加","x":220,"y":483,"width":268,"height":176}
+	],
+	"edges":[
+		{"id":"5cb6725dfc86bc51","fromNode":"de59b00906e3098c","fromSide":"right","toNode":"a221e44406b6867a","toSide":"left"}
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"9513b46dc67ab23a","type":"file","file":"网课资料/数据结构与算法（陈越/树/树与树的表示/attachments/Pasted image 20251013125227.png","x":-380,"y":-400,"width":463,"height":300},
+		{"id":"f0255c54beb970fb","type":"file","file":"网课资料/数据结构与算法（陈越/树/树与树的表示/attachments/Pasted image 20251013125450.png","x":-380,"y":-60,"width":456,"height":300},
+		{"id":"1283c8a739624c52","type":"text","text":"树是保证节点连通的最小的连接方式","x":140,"y":60,"width":250,"height":60},
+		{"id":"cf7a830d24000a65","type":"file","file":"网课资料/数据结构与算法（陈越/树/树与树的表示/attachments/Pasted image 20251013130129.png","x":-380,"y":280,"width":456,"height":305},
+		{"id":"fec6750596c21722","type":"file","file":"网课资料/数据结构与算法（陈越/树/树与树的表示/attachments/Pasted image 20251013130422.png","x":-380,"y":640,"width":466,"height":300}
+	],
+	"edges":[
+		{"id":"3bbdb8e4366bf2c0","fromNode":"f0255c54beb970fb","fromSide":"right","toNode":"1283c8a739624c52","toSide":"left"}
+	]
+}

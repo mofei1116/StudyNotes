@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"d4bdaac677b74e09","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250901155351.png","x":-360,"y":-360,"width":493,"height":180},
+		{"id":"22a24136a9fdf3cd","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250901155455.png","x":-360,"y":-60,"width":447,"height":200},
+		{"id":"2c6495f00f3ff105","type":"text","text":"伪代码","x":-345,"y":-148,"width":125,"height":50},
+		{"id":"2c46890c82e43ab1","type":"file","file":"网课资料/C程序与设计（翁恺/运算符和变量类型/构造素数表.md","x":-360,"y":180,"width":447,"height":560}
+	],
+	"edges":[
+		{"id":"109747b4a04bb74e","fromNode":"2c6495f00f3ff105","fromSide":"right","toNode":"22a24136a9fdf3cd","toSide":"top"}
+	]
+}

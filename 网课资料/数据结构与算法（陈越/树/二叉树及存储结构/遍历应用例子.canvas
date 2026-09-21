@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"f561390574231a8e","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251015134444.png","x":-360,"y":-360,"width":399,"height":216},
+		{"id":"a209655c1a76c487","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251015161436.png","x":-360,"y":-100,"width":400,"height":251},
+		{"id":"d47faeb8c2df0690","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251015161957.png","x":-361,"y":180,"width":401,"height":247},
+		{"id":"e74b365aa4bbe434","type":"text","text":"解决方法：输出左子树和右子树时加括号","x":100,"y":275,"width":240,"height":58},
+		{"id":"dc0569f29c665b98","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251015162317.png","x":-360,"y":480,"width":422,"height":240},
+		{"id":"48cd9ea6a5e3bbed","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251015163331.png","x":-361,"y":1060,"width":400,"height":312},
+		{"id":"1dfbaf3b2a7b5328","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251015162909.png","x":-360,"y":740,"width":469,"height":280}
+	],
+	"edges":[
+		{"id":"758e46b36b0f6f33","fromNode":"d47faeb8c2df0690","fromSide":"right","toNode":"e74b365aa4bbe434","toSide":"left"}
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"53b78e8455e3124f","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250829113238.png","x":-360,"y":-380,"width":439,"height":196},
+		{"id":"f9e1dca8c9fec9d7","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250829150407.png","x":-360,"y":-160,"width":400,"height":337},
+		{"id":"a49918f8fca43a30","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250829152527.png","x":-360,"y":200,"width":454,"height":300},
+		{"id":"097ddd28fe7d8b5a","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250901124237.png","x":-360,"y":540,"width":439,"height":282},
+		{"id":"4c909d2ad172c58d","type":"text","text":"数组作为函数参数时，往往必须用另一个参数来传入数组的大小","x":-360,"y":880,"width":440,"height":60}
+	],
+	"edges":[]
+}

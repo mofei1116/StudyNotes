@@ -1,0 +1,18 @@
+{
+	"nodes":[
+		{"id":"1a45a80d55ac6de2","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/Pasted image 20251103151413.png","x":-340,"y":-340,"width":399,"height":254},
+		{"id":"ae1dd84b9060b131","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/Pasted image 20251103152801.png","x":-341,"y":-20,"width":399,"height":278},
+		{"id":"3d7d61ab38059637","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/PixPin_2025-11-04_13-02-35.png","x":-341,"y":300,"width":400,"height":265},
+		{"id":"082262b1eb6ab14b","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/PixPin_2025-11-04_13-06-13.png","x":-341,"y":600,"width":400,"height":278},
+		{"id":"e08995d38587a823","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/PixPin_2025-11-04_13-20-58.png","x":-341,"y":920,"width":468,"height":280},
+		{"id":"5f39b129a85ec493","type":"text","text":"Dijkstra不能正确处理负值圈","x":127,"y":-238,"width":253,"height":50},
+		{"id":"104d80e02b1e71b1","type":"text","text":"初始化dist：dist[V]=0;dist[V的邻接点]=对应的权值，其他顶点初始化为无穷大","x":127,"y":385,"width":314,"height":96},
+		{"id":"68e2a378e395cf9b","type":"file","file":"网课资料/数据结构与算法（陈越/图/最短路径问题/attachments/Pasted image 20251107112432.png","x":-341,"y":1280,"width":400,"height":287},
+		{"id":"5ce6d6db21d8ab0a","type":"text","text":"count[v]表示从s到v的等长最短路径条数","x":127,"y":1280,"width":241,"height":60}
+	],
+	"edges":[
+		{"id":"74808ef7b7116815","fromNode":"1a45a80d55ac6de2","fromSide":"right","toNode":"5f39b129a85ec493","toSide":"left"},
+		{"id":"67fc0972a98788a9","fromNode":"3d7d61ab38059637","fromSide":"right","toNode":"104d80e02b1e71b1","toSide":"left"},
+		{"id":"87f2f14588f1042d","fromNode":"68e2a378e395cf9b","fromSide":"right","toNode":"5ce6d6db21d8ab0a","toSide":"left"}
+	]
+}

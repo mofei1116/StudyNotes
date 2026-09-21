@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"88315fca1f2ff00d","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250829100305.png","x":-380,"y":-380,"width":449,"height":180},
+		{"id":"38b33c53757bce32","type":"text","text":"数组","x":-380,"y":-160,"width":108,"height":60},
+		{"id":"c3b84b6203c67c52","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250829101014.png","x":-380,"y":360,"width":461,"height":180},
+		{"id":"7ae2107c15ccc678","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250829101411.png","x":-380,"y":580,"width":460,"height":313},
+		{"id":"6babff2bbc1fbf64","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250829100612.png","x":-220,"y":-160,"width":350,"height":120},
+		{"id":"f68098be968de4d9","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250829100808.png","x":-380,"y":0,"width":400,"height":324}
+	],
+	"edges":[
+		{"id":"ce8da60c0452b05b","fromNode":"38b33c53757bce32","fromSide":"right","toNode":"6babff2bbc1fbf64","toSide":"left"}
+	]
+}

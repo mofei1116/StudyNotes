@@ -1,0 +1,16 @@
+{
+	"nodes":[
+		{"id":"2051696817ff6f58","type":"file","file":"网课资料/C程序与设计（翁恺/文件/位运算/attachments/Pasted image 20250916084024.png","x":-320,"y":-340,"width":320,"height":286},
+		{"id":"634520489d08f28e","type":"file","file":"网课资料/C程序与设计（翁恺/文件/位运算/attachments/Pasted image 20250916084132.png","x":-320,"y":-20,"width":400,"height":276},
+		{"id":"a755e9ec85119b49","type":"file","file":"网课资料/C程序与设计（翁恺/文件/位运算/attachments/Pasted image 20250916085116.png","x":-320,"y":300,"width":400,"height":268},
+		{"id":"fa3b01d99bfb9041","type":"text","text":"按位取反于求补码不同","x":180,"y":753,"width":212,"height":50},
+		{"id":"d14531d57d265b04","type":"file","file":"网课资料/C程序与设计（翁恺/文件/位运算/attachments/Pasted image 20250916090424.png","x":-333,"y":980,"width":426,"height":280},
+		{"id":"bdd5b2b7261b7dd1","type":"file","file":"网课资料/C程序与设计（翁恺/文件/位运算/attachments/Pasted image 20250916091046.png","x":-333,"y":1300,"width":400,"height":295},
+		{"id":"6cd9e8f1af3d478f","type":"text","text":"可以用于加密运算","x":120,"y":1423,"width":185,"height":50},
+		{"id":"ef5fc127897a9da2","type":"file","file":"网课资料/C程序与设计（翁恺/文件/位运算/attachments/Pasted image 20250916085155.png","x":-333,"y":620,"width":400,"height":316}
+	],
+	"edges":[
+		{"id":"729ff06d61a34962","fromNode":"ef5fc127897a9da2","fromSide":"right","toNode":"fa3b01d99bfb9041","toSide":"left"},
+		{"id":"b75194aa8deae1e4","fromNode":"bdd5b2b7261b7dd1","fromSide":"right","toNode":"6cd9e8f1af3d478f","toSide":"left"}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"a23352da78af71c1","type":"text","text":"27：26个字母加上一个空格","x":280,"y":-80,"width":253,"height":50},
+		{"id":"803a4b2ad86abb35","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/散列函数的构造/attachments/Pasted image 20251111085515.png","x":-220,"y":-100,"width":400,"height":279},
+		{"id":"775855dfe7cf7f1c","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/散列函数的构造/attachments/Pasted image 20251111085710.png","x":-220,"y":240,"width":461,"height":300},
+		{"id":"7efc853b7c48465c","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/散列函数的构造/attachments/Pasted image 20251111091004.png","x":-220,"y":600,"width":456,"height":300},
+		{"id":"3fffe1032450b9b7","type":"text","text":"左移5位相当于乘以32（2的5次方）","x":280,"y":720,"width":250,"height":60},
+		{"id":"356ac6971aefbf5a","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/散列函数的构造/attachments/Pasted image 20251111085347.png","x":-218,"y":-280,"width":398,"height":111}
+	],
+	"edges":[
+		{"id":"d9cc925bda0f8be2","fromNode":"803a4b2ad86abb35","fromSide":"right","toNode":"a23352da78af71c1","toSide":"left"},
+		{"id":"6f38d2a5a02e9647","fromNode":"7efc853b7c48465c","fromSide":"right","toNode":"3fffe1032450b9b7","toSide":"left"}
+	]
+}

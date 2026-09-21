@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"d4628cdeb4c810fd","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/预处理和宏/attachments/Pasted image 20250913130854.png","x":-300,"y":-320,"width":359,"height":254},
+		{"id":"4321fe2949d51d85","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/预处理和宏/attachments/Pasted image 20250913131716.png","x":-300,"y":-20,"width":380,"height":266},
+		{"id":"0dc4acc5f7c2a508","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/预处理和宏/attachments/Pasted image 20250913132025.png","x":-300,"y":280,"width":360,"height":293},
+		{"id":"8120e675a0ae6474","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/预处理和宏/attachments/Pasted image 20250913132155.png","x":-300,"y":620,"width":319,"height":285},
+		{"id":"beadfccd6beaba6e","type":"text","text":"不要在值的末尾加上分号","x":-300,"y":940,"width":235,"height":50},
+		{"id":"d3a5c159561a76ec","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/预处理和宏/attachments/Pasted image 20250913132624.png","x":-300,"y":1020,"width":320,"height":281}
+	],
+	"edges":[
+		{"id":"dd104a1c0ad9ffef","fromNode":"8120e675a0ae6474","fromSide":"bottom","toNode":"beadfccd6beaba6e","toSide":"top"}
+	]
+}

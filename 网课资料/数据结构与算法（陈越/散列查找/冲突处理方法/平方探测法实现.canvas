@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"279a36fcb0d6e273","type":"text","text":"info：标记是否被删除","x":481,"y":-200,"width":219,"height":50},
+		{"id":"1579bc6faee23546","type":"text","text":"NextPrime：找一个比表长大的素数作为实际的表长","x":481,"y":-340,"width":260,"height":60},
+		{"id":"0c27d301f40ca487","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251111234550.png","x":-140,"y":-417,"width":539,"height":370},
+		{"id":"383b0b6a613c5b3a","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251111233143.png","x":-140,"y":460,"width":519,"height":424},
+		{"id":"4f0d5082aed2bf77","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251111235555.png","x":-120,"y":0,"width":200,"height":424},
+		{"id":"3372f4d58aabcdc7","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251112143927.png","x":-140,"y":920,"width":515,"height":400},
+		{"id":"74487a46b9d9a174","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251112144441.png","x":-140,"y":1380,"width":570,"height":300},
+		{"id":"2d66d48ee799a1c7","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251112144617.png","x":-140,"y":1740,"width":610,"height":200},
+		{"id":"e990408306a90f72","type":"text","text":"再散列需要重新分配关键字","x":520,"y":1815,"width":248,"height":50}
+	],
+	"edges":[
+		{"id":"e5f0d4966b4179c0","fromNode":"0c27d301f40ca487","fromSide":"right","toNode":"1579bc6faee23546","toSide":"left"},
+		{"id":"d1cc0855ceb041b3","fromNode":"0c27d301f40ca487","fromSide":"right","toNode":"279a36fcb0d6e273","toSide":"left"},
+		{"id":"8e86753d9aa8b7bb","fromNode":"0c27d301f40ca487","fromSide":"bottom","toNode":"4f0d5082aed2bf77","toSide":"top"},
+		{"id":"c1fd68beb05f491e","fromNode":"2d66d48ee799a1c7","fromSide":"right","toNode":"e990408306a90f72","toSide":"left"}
+	]
+}

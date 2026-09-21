@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"05d834733af4ee86","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251011231613.png","x":-360,"y":-400,"width":460,"height":433},
+		{"id":"d6cae0cc8599c29d","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251011232051.png","x":-360,"y":100,"width":460,"height":193},
+		{"id":"68b7c4f7d279e0c5","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251011232357.png","x":-360,"y":340,"width":419,"height":292},
+		{"id":"8730e0b3dbf5cd2d","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251011233330.png","x":-360,"y":680,"width":426,"height":300},
+		{"id":"1393f7954307d845","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251012103550.png","x":-360,"y":1020,"width":419,"height":320},
+		{"id":"ce6651b4c03553ba","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251012104320.png","x":-360,"y":1380,"width":426,"height":306},
+		{"id":"89889a3f4f765d3a","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251012104422.png","x":-360,"y":1720,"width":426,"height":304},
+		{"id":"ac483ec9a8e265c7","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251012111826.png","x":-360,"y":2060,"width":434,"height":340},
+		{"id":"c216b4ad8182e262","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251012112912.png","x":-360,"y":2460,"width":460,"height":325},
+		{"id":"330a1eb69c3b0de2","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251012132227.png","x":-360,"y":2840,"width":440,"height":302},
+		{"id":"e2780f5cd579c89b","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251012132635.png","x":-360,"y":3180,"width":400,"height":280},
+		{"id":"8814b894dfd18ae5","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251012132941.png","x":-360,"y":3500,"width":406,"height":300},
+		{"id":"f8f127120a0f66a1","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251012133328.png","x":-360,"y":3840,"width":447,"height":340},
+		{"id":"cf8044f0971b3531","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/多项式加法与乘法运算实现/attachments/Pasted image 20251011231540.png","x":160,"y":-308,"width":220,"height":250}
+	],
+	"edges":[
+		{"id":"874ff588029994b3","fromNode":"05d834733af4ee86","fromSide":"right","toNode":"cf8044f0971b3531","toSide":"left"}
+	]
+}

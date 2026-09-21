@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"41668566a18fd7aa","type":"file","file":"网课资料/数据结构与算法（陈越/图/拓扑排序/attachments/PixPin_2025-11-05_16-04-19.png","x":-340,"y":-360,"width":423,"height":340},
+		{"id":"9d64c0f280153a71","type":"text","text":"往后推最早完成时间取最大\n往前推最晚完成时间取最小","x":263,"y":100,"width":265,"height":67},
+		{"id":"3b4e12392e3549ca","type":"text","text":"关键路径：没有机动时间","x":263,"y":234,"width":230,"height":50},
+		{"id":"fade4ed91681f8ca","type":"file","file":"网课资料/数据结构与算法（陈越/图/拓扑排序/attachments/PixPin_2025-11-05_16-20-29.png","x":-340,"y":60,"width":500,"height":348}
+	],
+	"edges":[
+		{"id":"e9a9880ce0d22d0e","fromNode":"fade4ed91681f8ca","fromSide":"right","toNode":"9d64c0f280153a71","toSide":"left"},
+		{"id":"d292c781ed2e31e8","fromNode":"fade4ed91681f8ca","fromSide":"right","toNode":"3b4e12392e3549ca","toSide":"left"}
+	]
+}

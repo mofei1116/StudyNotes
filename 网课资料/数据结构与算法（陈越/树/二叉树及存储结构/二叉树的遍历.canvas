@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"f443e5a7eb4a629e","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251014125228.png","x":-360,"y":-400,"width":479,"height":315},
+		{"id":"beb556263839cb81","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251014130115.png","x":-360,"y":-40,"width":480,"height":279},
+		{"id":"1cd5fc531285c5ab","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251014130150.png","x":-360,"y":280,"width":467,"height":280},
+		{"id":"91e29218db002900","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251014130612.png","x":-360,"y":600,"width":480,"height":325},
+		{"id":"9c7e0547d0b27fc2","type":"text","text":"每个节点会经过三次","x":180,"y":737,"width":207,"height":51}
+	],
+	"edges":[
+		{"id":"60b281c7ae12573f","fromNode":"91e29218db002900","fromSide":"right","toNode":"9c7e0547d0b27fc2","toSide":"left"}
+	]
+}

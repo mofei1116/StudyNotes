@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"bc1475ba27f9bee1","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/全局变量/attachments/Pasted image 20250912212120.png","x":-300,"y":-360,"width":380,"height":317},
+		{"id":"708d6c1325c0d6c0","type":"text","text":"int iall=f();\n或\nint iall=12;\nint jall=iall;\n不行","x":120,"y":116,"width":140,"height":160},
+		{"id":"3177caa49840109a","type":"text","text":"更小的块内定义的同名变量会覆盖外面更大块内的变量","x":-290,"y":320,"width":360,"height":60},
+		{"id":"b156d9a76c882647","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/全局变量/attachments/Pasted image 20250912212109.png","x":-300,"y":0,"width":380,"height":276}
+	],
+	"edges":[
+		{"id":"8609bfae77d7bcb1","fromNode":"b156d9a76c882647","fromSide":"right","toNode":"708d6c1325c0d6c0","toSide":"left"},
+		{"id":"9a6ec6e5a1730686","fromNode":"b156d9a76c882647","fromSide":"bottom","toNode":"3177caa49840109a","toSide":"top"}
+	]
+}

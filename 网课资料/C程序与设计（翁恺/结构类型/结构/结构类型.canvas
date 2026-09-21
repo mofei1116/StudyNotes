@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"38fd6f780adcc1a1","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250912081246.png","x":-340,"y":-320,"width":360,"height":120},
+		{"id":"a391f68329fc6c2d","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250912081706.png","x":-340,"y":-160,"width":440,"height":250},
+		{"id":"64b6587da68fda0e","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250912082603.png","x":-340,"y":140,"width":360,"height":350},
+		{"id":"e58597588186a0be","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250912082811.png","x":-340,"y":520,"width":380,"height":296},
+		{"id":"f51dc127fc6fedf8","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250912084024.png","x":-340,"y":860,"width":380,"height":95},
+		{"id":"c951f18e2cac3940","type":"text","text":"对于第一和第三种形式，都声明了结构point。但是第二种形式没有声明point，只是定义了两个变量","x":140,"y":-140,"width":285,"height":124},
+		{"id":"860a314452534494","type":"text","text":"可以强制类型转换","x":120,"y":700,"width":180,"height":50}
+	],
+	"edges":[
+		{"id":"1e01e6141826b3b3","fromNode":"a391f68329fc6c2d","fromSide":"right","toNode":"c951f18e2cac3940","toSide":"left"},
+		{"id":"197f6dedc8892e2f","fromNode":"e58597588186a0be","fromSide":"right","toNode":"860a314452534494","toSide":"left"}
+	]
+}

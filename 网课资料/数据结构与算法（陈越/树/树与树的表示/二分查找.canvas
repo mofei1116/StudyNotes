@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"cd3e182efe07e68f","type":"file","file":"网课资料/数据结构与算法（陈越/树/树与树的表示/attachments/Pasted image 20251012231341.png","x":-340,"y":-360,"width":379,"height":129},
+		{"id":"5e6d4f9c6d0e75c4","type":"file","file":"网课资料/数据结构与算法（陈越/树/树与树的表示/attachments/Pasted image 20251012231848.png","x":-340,"y":-180,"width":420,"height":234},
+		{"id":"c9db4683a88ad0b2","type":"file","file":"网课资料/数据结构与算法（陈越/树/树与树的表示/attachments/Pasted image 20251012232233.png","x":-340,"y":80,"width":431,"height":280},
+		{"id":"260eada636423ee4","type":"file","file":"网课资料/数据结构与算法（陈越/树/树与树的表示/attachments/Pasted image 20251012234605.png","x":-340,"y":400,"width":431,"height":294},
+		{"id":"8be478cd97a9288b","type":"file","file":"网课资料/数据结构与算法（陈越/树/树与树的表示/attachments/Pasted image 20251012235307.png","x":-340,"y":740,"width":437,"height":260}
+	],
+	"edges":[]
+}

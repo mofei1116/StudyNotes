@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"b34bda4b208eedeb","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906094619.png","x":-340,"y":-320,"width":399,"height":242},
+		{"id":"067db4559185795b","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906094550.png","x":-340,"y":-40,"width":400,"height":285},
+		{"id":"a9cbe9d0d8401e77","type":"text","text":"最后需要free(a)释放内存","x":120,"y":73,"width":199,"height":60},
+		{"id":"bb6bb3a0609a8d4f","type":"text","text":"该函数返回一个void*类型的指针 ，指向已分配大小的内存。如果请求失败，则返回 NULL。","x":120,"y":-40,"width":380,"height":80},
+		{"id":"40f728e29ddff2f0","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906103115.png","x":-340,"y":280,"width":360,"height":256},
+		{"id":"812bb7145a7889d1","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906103452.png","x":-340,"y":580,"width":399,"height":267}
+	],
+	"edges":[
+		{"id":"5f83b81ad55e32c9","fromNode":"067db4559185795b","fromSide":"right","toNode":"a9cbe9d0d8401e77","toSide":"left"},
+		{"id":"83ab2c00a5d25281","fromNode":"067db4559185795b","fromSide":"right","toNode":"bb6bb3a0609a8d4f","toSide":"left"}
+	]
+}

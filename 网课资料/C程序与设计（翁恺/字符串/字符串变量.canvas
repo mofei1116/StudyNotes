@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"9593fe2937f15a01","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906190910.png","x":-340,"y":-320,"width":400,"height":273},
+		{"id":"3de9c66ba8205f6e","type":"text","text":"指针指向的数组位于程序的代码段","x":100,"y":-208,"width":286,"height":50},
+		{"id":"1aa4f5ef0a272cd6","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906192114.png","x":-340,"y":0,"width":360,"height":320},
+		{"id":"2a07c6ef5d01c2f3","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906192139.png","x":60,"y":113,"width":329,"height":95},
+		{"id":"4338c62acd44f9a7","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250906193228.png","x":-340,"y":360,"width":380,"height":243}
+	],
+	"edges":[
+		{"id":"9e4f4c333c119b3e","fromNode":"9593fe2937f15a01","fromSide":"right","toNode":"3de9c66ba8205f6e","toSide":"left"},
+		{"id":"7a930cc74fd9f346","fromNode":"1aa4f5ef0a272cd6","fromSide":"right","toNode":"2a07c6ef5d01c2f3","toSide":"left"}
+	]
+}

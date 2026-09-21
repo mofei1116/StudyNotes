@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"0575e2866f42c01b","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/线性表及其实现/attachments/Pasted image 20250930082930.png","x":-260,"y":-340,"width":399,"height":297},
+		{"id":"1a46573839c7c2ac","type":"file","file":"网课资料/数据结构与算法（陈越/线性结构/线性表及其实现/attachments/Pasted image 20250930083447.png","x":-260,"y":0,"width":426,"height":300},
+		{"id":"6957cf2fb09dcc6b","type":"text","text":"链式存储的线性表的插入和删除要单独讨论i=1的情况","x":-260,"y":-440,"width":250,"height":60}
+	],
+	"edges":[]
+}

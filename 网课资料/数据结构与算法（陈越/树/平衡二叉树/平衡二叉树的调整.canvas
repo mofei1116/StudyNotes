@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"d01d09aa2b3d9ef1","type":"file","file":"网课资料/数据结构与算法（陈越/树/平衡二叉树/attachments/Pasted image 20251019131747.png","x":-360,"y":360,"width":480,"height":352},
+		{"id":"51f8d3a80c435c9c","type":"file","file":"网课资料/数据结构与算法（陈越/树/平衡二叉树/attachments/Pasted image 20251020081659.png","x":-360,"y":760,"width":480,"height":342},
+		{"id":"71bf25bb663aa14c","type":"file","file":"网课资料/数据结构与算法（陈越/树/平衡二叉树/attachments/Pasted image 20251020081941.png","x":-360,"y":1140,"width":461,"height":340},
+		{"id":"e740c1c4ce69ab41","type":"file","file":"网课资料/数据结构与算法（陈越/树/平衡二叉树/attachments/Pasted image 20251020082211.png","x":-360,"y":1520,"width":460,"height":311},
+		{"id":"c149942e841b2406","type":"file","file":"网课资料/数据结构与算法（陈越/树/平衡二叉树/attachments/Pasted image 20251019131254.png","x":-360,"y":120,"width":319,"height":159},
+		{"id":"d7e4efdbfd1e7b3f","type":"file","file":"网课资料/数据结构与算法（陈越/树/平衡二叉树/attachments/Pasted image 20251019131412.png","x":40,"y":80,"width":300,"height":239},
+		{"id":"cbfc90cf873d868b","type":"file","file":"网课资料/数据结构与算法（陈越/树/平衡二叉树/attachments/Pasted image 20251019130914.png","x":-360,"y":-340,"width":500,"height":355}
+	],
+	"edges":[
+		{"id":"35e139fb55e9bbad","fromNode":"cbfc90cf873d868b","fromSide":"bottom","toNode":"c149942e841b2406","toSide":"top"},
+		{"id":"1a0d4ac0b5df0780","fromNode":"cbfc90cf873d868b","fromSide":"bottom","toNode":"d7e4efdbfd1e7b3f","toSide":"top"}
+	]
+}

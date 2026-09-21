@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"2c1655b5838057c7","type":"file","file":"网课资料/数据结构与算法（陈越/排序/归并排序/attachments/Pasted image 20251108151927.png","x":-300,"y":-380,"width":460,"height":327},
+		{"id":"f7a7ce63dd4fc5a2","type":"text","text":"merge1: 与递归算法的merge不同，不需要再将temp数组导回a数组","x":240,"y":70,"width":280,"height":100},
+		{"id":"4a21e8cdfe7dafb0","type":"text","text":"每一次循环做两次metge_pass保证退出循环时序列存在a数组里","x":240,"y":467,"width":272,"height":87},
+		{"id":"39dd703bf788223f","type":"text","text":"归并排序需要额外的储存空间，常用于外排序","x":-300,"y":740,"width":280,"height":60},
+		{"id":"447346e0a32b5b92","type":"file","file":"网课资料/数据结构与算法（陈越/排序/归并排序/attachments/Pasted image 20251108151903.png","x":-300,"y":340,"width":469,"height":340},
+		{"id":"99010795d078547d","type":"file","file":"网课资料/数据结构与算法（陈越/排序/归并排序/attachments/Pasted image 20251108151958.png","x":-310,"y":-20,"width":479,"height":280}
+	],
+	"edges":[
+		{"id":"7aea8626b0b13fd3","fromNode":"99010795d078547d","fromSide":"right","toNode":"f7a7ce63dd4fc5a2","toSide":"left"},
+		{"id":"e5f39b30267c0274","fromNode":"447346e0a32b5b92","fromSide":"right","toNode":"4a21e8cdfe7dafb0","toSide":"left"}
+	]
+}

@@ -1,0 +1,18 @@
+{
+	"nodes":[
+		{"id":"780350d249e4aef4","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250901174537.png","x":-340,"y":-360,"width":360,"height":362},
+		{"id":"7ee6ec243e475dea","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250901174736.png","x":-340,"y":20,"width":376,"height":320},
+		{"id":"9cdef00d3d8ee7b1","type":"text","text":"a[i,j]表示a[j]","x":100,"y":40,"width":164,"height":50},
+		{"id":"974daaa373bdcabd","type":"text","text":"二维数组的初始化","x":-340,"y":360,"width":220,"height":60},
+		{"id":"373bd4a444141915","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250901180012.png","x":-340,"y":460,"width":400,"height":297},
+		{"id":"07649302a5f05eeb","type":"text","text":"tic-tac-toe游戏","x":-340,"y":800,"width":185,"height":60},
+		{"id":"82b875e48c272a71","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250901180517.png","x":-340,"y":900,"width":391,"height":140},
+		{"id":"eb3d09dc36eeb3af","type":"file","file":"网课资料/C程序与设计（翁恺/数组/tic-tac-toe游戏.md","x":-344,"y":1120,"width":400,"height":400}
+	],
+	"edges":[
+		{"id":"37fe5a3f015ac39f","fromNode":"7ee6ec243e475dea","fromSide":"right","toNode":"9cdef00d3d8ee7b1","toSide":"left"},
+		{"id":"c9fca8fd70678f89","fromNode":"974daaa373bdcabd","fromSide":"bottom","toNode":"373bd4a444141915","toSide":"top"},
+		{"id":"e18ded900977492d","fromNode":"07649302a5f05eeb","fromSide":"bottom","toNode":"82b875e48c272a71","toSide":"top"},
+		{"id":"926919bd4d9f5827","fromNode":"82b875e48c272a71","fromSide":"bottom","toNode":"eb3d09dc36eeb3af","toSide":"top"}
+	]
+}

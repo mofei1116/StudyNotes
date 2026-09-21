@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"135ad44738144538","type":"file","file":"网课资料/数据结构与算法（陈越/基本概念/什么是数据结构/attachments/Pasted image 20250925113319.png","x":-359,"y":100,"width":539,"height":380},
+		{"id":"90034eb83e36ecba","type":"file","file":"网课资料/数据结构与算法（陈越/基本概念/什么是数据结构/attachments/Pasted image 20250925112827.png","x":-359,"y":-260,"width":399,"height":301},
+		{"id":"85fef1231716532d","type":"text","text":"解决问题方法的效率跟算法的巧妙程度有关","x":-359,"y":540,"width":400,"height":60}
+	],
+	"edges":[]
+}

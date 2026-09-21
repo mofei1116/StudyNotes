@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"ca701b7e74ec4ca2","type":"file","file":"网课资料/数据结构与算法（陈越/排序/表排序/attachments/Pasted image 20251110151622.png","x":-340,"y":0,"width":401,"height":360},
+		{"id":"e0dee6e4ae7157a5","type":"text","text":"表排序适用于每个待排元素都是一个庞大的结构","x":135,"y":40,"width":250,"height":60},
+		{"id":"24390e60007526b7","type":"text","text":"不移动元素，只移动指针","x":135,"y":200,"width":240,"height":50}
+	],
+	"edges":[
+		{"id":"bb1eacf3c14101e8","fromNode":"ca701b7e74ec4ca2","fromSide":"right","toNode":"e0dee6e4ae7157a5","toSide":"left"},
+		{"id":"948c2f2c8b6bd0c6","fromNode":"ca701b7e74ec4ca2","fromSide":"right","toNode":"24390e60007526b7","toSide":"left"}
+	]
+}

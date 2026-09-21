@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"37ec0d86fae057db","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251111093716.png","x":-240,"y":-320,"width":420,"height":227},
+		{"id":"a6e9675386f06a9c","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251111093756.png","x":-241,"y":-60,"width":441,"height":275},
+		{"id":"9aa20c2857656fc4","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251111093654.png","x":-240,"y":240,"width":443,"height":240},
+		{"id":"fc4a881371fc66ce","type":"text","text":"7后面的冲突会聚集","x":300,"y":400,"width":192,"height":51},
+		{"id":"6bed3c201506eb89","type":"text","text":"遇到空位就停止查找（能断定不在散列表中）（假设没有删除操作）","x":254,"y":560,"width":238,"height":100},
+		{"id":"3f984e2ff28858ac","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251111095323.png","x":-240,"y":900,"width":464,"height":260},
+		{"id":"8b36acc5423421fe","type":"file","file":"网课资料/数据结构与算法（陈越/散列查找/冲突处理方法/attachments/Pasted image 20251111094521.png","x":-240,"y":540,"width":399,"height":299}
+	],
+	"edges":[
+		{"id":"a5fadd469c9d52fb","fromNode":"9aa20c2857656fc4","fromSide":"right","toNode":"fc4a881371fc66ce","toSide":"left"},
+		{"id":"f506c34df14813d2","fromNode":"8b36acc5423421fe","fromSide":"right","toNode":"6bed3c201506eb89","toSide":"left"}
+	]
+}

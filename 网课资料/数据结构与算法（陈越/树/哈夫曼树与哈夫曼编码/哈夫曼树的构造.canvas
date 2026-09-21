@@ -1,0 +1,18 @@
+{
+	"nodes":[
+		{"id":"14836a54e9378cae","type":"file","file":"网课资料/数据结构与算法（陈越/树/哈夫曼树与哈夫曼编码/attachments/Pasted image 20251022092240.png","x":-320,"y":-300,"width":359,"height":105},
+		{"id":"c257eed50a4f97a9","type":"file","file":"网课资料/数据结构与算法（陈越/树/哈夫曼树与哈夫曼编码/attachments/Pasted image 20251022092249.png","x":-300,"y":-90,"width":218,"height":63},
+		{"id":"b8d3ff04f0605382","type":"file","file":"网课资料/数据结构与算法（陈越/树/哈夫曼树与哈夫曼编码/attachments/Pasted image 20251022092325.png","x":40,"y":-131,"width":245,"height":145},
+		{"id":"32aedc2daa6f8bba","type":"file","file":"网课资料/数据结构与算法（陈越/树/哈夫曼树与哈夫曼编码/attachments/Pasted image 20251022092433.png","x":-280,"y":32,"width":200,"height":149},
+		{"id":"808afef343fe8a9b","type":"file","file":"网课资料/数据结构与算法（陈越/树/哈夫曼树与哈夫曼编码/attachments/Pasted image 20251022092534.png","x":-253,"y":240,"width":173,"height":200},
+		{"id":"4d105516b049a2f1","type":"file","file":"网课资料/数据结构与算法（陈越/树/哈夫曼树与哈夫曼编码/attachments/Pasted image 20251022120038.png","x":-320,"y":500,"width":590,"height":400},
+		{"id":"a07ef5e54b719f12","type":"file","file":"网课资料/数据结构与算法（陈越/树/哈夫曼树与哈夫曼编码/attachments/Pasted image 20251022092357.png","x":50,"y":93,"width":225,"height":177},
+		{"id":"9969e849da8f55f8","type":"file","file":"网课资料/数据结构与算法（陈越/树/哈夫曼树与哈夫曼编码/attachments/Pasted image 20251022134839.png","x":-320,"y":960,"width":400,"height":301}
+	],
+	"edges":[
+		{"id":"b9d0313efa3588f8","fromNode":"c257eed50a4f97a9","fromSide":"right","toNode":"b8d3ff04f0605382","toSide":"left"},
+		{"id":"b4d21dc1c5e9303f","fromNode":"b8d3ff04f0605382","fromSide":"bottom","toNode":"a07ef5e54b719f12","toSide":"top"},
+		{"id":"b95c54a143fe8abd","fromNode":"a07ef5e54b719f12","fromSide":"left","toNode":"32aedc2daa6f8bba","toSide":"right"},
+		{"id":"9feb715c9ed5c97d","fromNode":"32aedc2daa6f8bba","fromSide":"bottom","toNode":"808afef343fe8a9b","toSide":"top"}
+	]
+}

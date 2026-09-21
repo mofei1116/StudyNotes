@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"de3f6df04ac04d8b","type":"file","file":"网课资料/数据结构与算法（陈越/图/最小生成树问题/attachments/PixPin_2025-11-05_11-35-56.png","x":-300,"y":-280,"width":460,"height":320},
+		{"id":"5d8420656c13c612","type":"file","file":"网课资料/数据结构与算法（陈越/图/最小生成树问题/attachments/PixPin_2025-11-05_11-42-39.png","x":-300,"y":80,"width":360,"height":295},
+		{"id":"7d97073a16ecec8a","type":"file","file":"网课资料/数据结构与算法（陈越/图/最小生成树问题/attachments/PixPin_2025-11-05_11-47-51.png","x":-300,"y":420,"width":400,"height":275},
+		{"id":"ab6b6e6eb5954803","type":"file","file":"网课资料/数据结构与算法（陈越/图/最小生成树问题/attachments/PixPin_2025-11-05_11-54-10.png","x":-300,"y":740,"width":580,"height":405},
+		{"id":"6e63137ece19048c","type":"text","text":"dist为未收录的顶点到树的最小距离","x":360,"y":910,"width":260,"height":66},
+		{"id":"cbc1489ef5d93e8a","type":"text","text":"parent[]：双亲表示法","x":382,"y":820,"width":216,"height":52}
+	],
+	"edges":[
+		{"id":"a87ddffae46e155d","fromNode":"ab6b6e6eb5954803","fromSide":"right","toNode":"6e63137ece19048c","toSide":"left"},
+		{"id":"3545c81e47bf69f7","fromNode":"ab6b6e6eb5954803","fromSide":"right","toNode":"cbc1489ef5d93e8a","toSide":"left"}
+	]
+}

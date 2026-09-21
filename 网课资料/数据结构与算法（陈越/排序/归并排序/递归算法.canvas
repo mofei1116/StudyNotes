@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"d28b3dc6a8e1ea86","type":"file","file":"网课资料/数据结构与算法（陈越/排序/归并排序/attachments/Pasted image 20251108120448.png","x":320,"y":580,"width":506,"height":320},
+		{"id":"3bbc29a116e5a602","type":"text","text":"重复malloc","x":926,"y":712,"width":132,"height":56},
+		{"id":"f90682bff1e96636","type":"file","file":"网课资料/数据结构与算法（陈越/排序/归并排序/attachments/Pasted image 20251108120249.png","x":323,"y":200,"width":500,"height":334},
+		{"id":"823a1f58a1410655","type":"file","file":"网课资料/数据结构与算法（陈越/排序/归并排序/attachments/Pasted image 20251108120630.png","x":323,"y":-260,"width":536,"height":380},
+		{"id":"972b7e5d7b5beb79","type":"text","text":"任何情况下都是O(NlogN)","x":926,"y":20,"width":250,"height":50}
+	],
+	"edges":[
+		{"id":"62ee0824c7101688","fromNode":"d28b3dc6a8e1ea86","fromSide":"right","toNode":"3bbc29a116e5a602","toSide":"left"},
+		{"id":"ba76f6e371e59164","fromNode":"823a1f58a1410655","fromSide":"right","toNode":"972b7e5d7b5beb79","toSide":"left"}
+	]
+}

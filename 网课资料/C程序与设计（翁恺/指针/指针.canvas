@@ -1,0 +1,16 @@
+{
+	"nodes":[
+		{"id":"a50bd9cc730125b5","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250905165905.png","x":-320,"y":-320,"width":400,"height":245},
+		{"id":"185fecf56f62b434","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250905170015.png","x":-320,"y":40,"width":240,"height":181},
+		{"id":"44046fa24948604e","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250905170513.png","x":-320,"y":260,"width":399,"height":109},
+		{"id":"53ff134688d6c3f6","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250905171514.png","x":-320,"y":400,"width":387,"height":240},
+		{"id":"af09f54057499107","type":"text","text":"*p是一个int类型","x":-26,"y":102,"width":185,"height":57},
+		{"id":"a5e6741f0670b94d","type":"text","text":"指针","x":-320,"y":-40,"width":85,"height":50},
+		{"id":"ffc7328aaf40314d","type":"text","text":"初始化指针时需要给一个地址而不是变量","x":-126,"y":-40,"width":336,"height":50}
+	],
+	"edges":[
+		{"id":"230a7248bc62b53e","fromNode":"a5e6741f0670b94d","fromSide":"bottom","toNode":"185fecf56f62b434","toSide":"top"},
+		{"id":"107224dc08f7d7eb","fromNode":"185fecf56f62b434","fromSide":"right","toNode":"af09f54057499107","toSide":"left"},
+		{"id":"9cad8d4d9bc09838","fromNode":"a5e6741f0670b94d","fromSide":"right","toNode":"ffc7328aaf40314d","toSide":"left"}
+	]
+}

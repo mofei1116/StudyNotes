@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"c318f90128369e44","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907115958.png","x":-320,"y":-320,"width":400,"height":276},
+		{"id":"540916845f6217b8","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907120537.png","x":-320,"y":0,"width":400,"height":240},
+		{"id":"8c552636f184e969","type":"text","text":"#include <stdio.h>\n#include <string.h>\n\nint mycpy(char* dst, const char* src) {\n    /*int idx = 0;\n    while (src[idx]) {\n        dst[idx] = src[idx];\n        idx++;\n    }\n    return dst;\n    */\n    char* ret = dst;\n    while (1) {\n        *dst++ = *src++;\n        if (*src == '\\0') {\n            break;\n        }\n    }\n    return ret;\n}","x":-320,"y":280,"width":400,"height":520}
+	],
+	"edges":[]
+}

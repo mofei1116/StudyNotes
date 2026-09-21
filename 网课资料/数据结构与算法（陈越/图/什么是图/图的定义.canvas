@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"ffdf10a42f5ce562","type":"file","file":"网课资料/数据结构与算法（陈越/图/什么是图/attachments/Pasted image 20251027212025.png","x":-340,"y":-380,"width":440,"height":306},
+		{"id":"c02fd9add4cf4633","type":"file","file":"网课资料/数据结构与算法（陈越/图/什么是图/attachments/Pasted image 20251027212307.png","x":-340,"y":-20,"width":480,"height":323},
+		{"id":"844248cbf997b293","type":"file","file":"网课资料/数据结构与算法（陈越/图/什么是图/attachments/Pasted image 20251027212429.png","x":-340,"y":360,"width":464,"height":280},
+		{"id":"4ddb87ef59abb2c2","type":"text","text":"网络：边带有权重的图","x":160,"y":475,"width":220,"height":50},
+		{"id":"40208dcc03d29a7f","type":"text","text":"V：数据集\nE：关系集","x":194,"y":20,"width":152,"height":75}
+	],
+	"edges":[
+		{"id":"ac7b85e4b461ddb9","fromNode":"844248cbf997b293","fromSide":"right","toNode":"4ddb87ef59abb2c2","toSide":"left"},
+		{"id":"d27badcb16c9aae5","fromNode":"c02fd9add4cf4633","fromSide":"right","toNode":"40208dcc03d29a7f","toSide":"left"}
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"2a063f9d3c17857a","type":"file","file":"网课资料/数据结构与算法（陈越/排序/表排序/attachments/Pasted image 20251110152853.png","x":0,"y":-186,"width":400,"height":297},
+		{"id":"d2f50c6a374e7b7e","type":"text","text":"环：table[0]->table[3]->table[1]->table[5]->table[0]，构成了一个环","x":0,"y":-320,"width":316,"height":83},
+		{"id":"a7358a40bb3e495f","type":"file","file":"网课资料/数据结构与算法（陈越/排序/表排序/attachments/Pasted image 20251110153230.png","x":0,"y":160,"width":419,"height":266},
+		{"id":"8a52a3b2be89f001","type":"text","text":"m不可忽略","x":514,"y":268,"width":142,"height":50},
+		{"id":"b3dc545691acd5c6","type":"file","file":"网课资料/数据结构与算法（陈越/排序/表排序/attachments/Pasted image 20251110160642.png","x":460,"y":-186,"width":279,"height":98},
+		{"id":"6e790d2bef4de048","type":"text","text":"每移动了一个之后将table下标修改为对应的i","x":460,"y":100,"width":250,"height":60},
+		{"id":"a142bdc22f875501","type":"text","text":"每访问一个空位i后，就令table[i]=i。当发现table[i] == i时，环就结束了。","x":514,"y":-37,"width":278,"height":97}
+	],
+	"edges":[
+		{"id":"b6c7d5b0075dc5ef","fromNode":"2a063f9d3c17857a","fromSide":"right","toNode":"6e790d2bef4de048","toSide":"left"},
+		{"id":"6f27cd4a95a8778c","fromNode":"a7358a40bb3e495f","fromSide":"right","toNode":"8a52a3b2be89f001","toSide":"left"},
+		{"id":"35776d3528108646","fromNode":"b3dc545691acd5c6","fromSide":"left","toNode":"2a063f9d3c17857a","toSide":"right"},
+		{"id":"60860cb085408c87","fromNode":"2a063f9d3c17857a","fromSide":"right","toNode":"a142bdc22f875501","toSide":"left"}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"8331b42a6d7a5341","type":"file","file":"网课资料/数据结构与算法（陈越/排序/简单排序（冒泡，插入）/attachments/Pasted image 20251107235309.png","x":-320,"y":-360,"width":500,"height":346},
+		{"id":"0d0635425c4e781d","type":"text","text":"注意：a[i-1]>temp而不是a[i-1]>a[i]","x":260,"y":-224,"width":249,"height":75},
+		{"id":"05225d8616e798fd","type":"text","text":"每次在一个有序序列中插入一个元素","x":259,"y":-100,"width":250,"height":59}
+	],
+	"edges":[
+		{"id":"549ad2d6b95e566c","fromNode":"8331b42a6d7a5341","fromSide":"right","toNode":"0d0635425c4e781d","toSide":"left"},
+		{"id":"6e02dc784a3e974b","fromNode":"8331b42a6d7a5341","fromSide":"right","toNode":"05225d8616e798fd","toSide":"left"}
+	]
+}

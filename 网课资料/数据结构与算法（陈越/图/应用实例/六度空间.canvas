@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"2b25de4ce348bd6f","type":"file","file":"网课资料/数据结构与算法（陈越/图/应用实例/attachments/Pasted image 20251030160842.png","x":-320,"y":-340,"width":400,"height":271},
+		{"id":"0f41f876039fac12","type":"file","file":"网课资料/数据结构与算法（陈越/图/应用实例/attachments/Pasted image 20251030161400.png","x":-320,"y":-20,"width":419,"height":291},
+		{"id":"d58c0970bfd23571","type":"text","text":"方案2：tail和last变量","x":-320,"y":340,"width":240,"height":50},
+		{"id":"dec75cfc33a22c5e","type":"text","text":"记录层数方案1：给每个节点加一个层数属性，每次入队列都更改其节点的层数属性为上一个出队的节点的层数属性++","x":160,"y":76,"width":341,"height":100},
+		{"id":"29801840bf9026f6","type":"file","file":"网课资料/数据结构与算法（陈越/图/应用实例/attachments/Pasted image 20251030161955.png","x":-321,"y":460,"width":420,"height":322},
+		{"id":"0b861d72d4067b08","x":140,"y":591,"width":250,"height":60,"type":"text","text":"last：上一层的最后一个\ntail：当前层的最后一个"}
+	],
+	"edges":[
+		{"id":"4dd1859b98bbca84","fromNode":"0f41f876039fac12","fromSide":"right","toNode":"dec75cfc33a22c5e","toSide":"left"},
+		{"id":"644576f4a560dc71","fromNode":"d58c0970bfd23571","fromSide":"bottom","toNode":"29801840bf9026f6","toSide":"top"},
+		{"id":"7eb45cf23e962b00","fromNode":"29801840bf9026f6","fromSide":"right","toNode":"0b861d72d4067b08","toSide":"left"}
+	]
+}

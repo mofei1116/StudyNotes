@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"752972441494001b","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/全局变量/attachments/Pasted image 20250913114235.png","x":-320,"y":-340,"width":400,"height":255},
+		{"id":"3fd357f6dd6cd899","type":"file","file":"网课资料/C程序与设计（翁恺/程序结构/全局变量/attachments/Pasted image 20250913114342.png","x":-320,"y":-60,"width":400,"height":262},
+		{"id":"31e08ce9eda6bd7f","type":"text","text":"尽量避免使用全局变量和静态本地变量","x":-320,"y":240,"width":320,"height":50}
+	],
+	"edges":[]
+}

@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"a71f6a411dfbc3db","type":"file","file":"网课资料/数据结构与算法（陈越/排序/堆排序/attachments/Pasted image 20251108104226.png","x":-300,"y":-340,"width":480,"height":278},
+		{"id":"2e69a6b1d323b61b","type":"file","file":"网课资料/数据结构与算法（陈越/排序/堆排序/attachments/Pasted image 20251108111018.png","x":-300,"y":-20,"width":399,"height":304},
+		{"id":"6f68cb36a9c4c9ef","type":"file","file":"网课资料/数据结构与算法（陈越/排序/堆排序/attachments/Pasted image 20251108112116.png","x":-300,"y":346,"width":460,"height":308},
+		{"id":"4cecbd0a5fd23dbe","type":"text","text":"先建立最大堆","x":220,"y":380,"width":154,"height":50},
+		{"id":"8cafd15d0a3e120c","type":"text","text":"最坏时间复杂度为O(NlogN)","x":200,"y":540,"width":250,"height":50},
+		{"id":"f8ba551c1d88b642","type":"text","text":"堆排序不稳定","x":-157,"y":700,"width":174,"height":50}
+	],
+	"edges":[
+		{"id":"2e5463c141af8aec","fromNode":"6f68cb36a9c4c9ef","fromSide":"right","toNode":"4cecbd0a5fd23dbe","toSide":"left"},
+		{"id":"4c69c896bd87d4dd","fromNode":"6f68cb36a9c4c9ef","fromSide":"right","toNode":"8cafd15d0a3e120c","toSide":"left"},
+		{"id":"186b2853b3897cb6","fromNode":"6f68cb36a9c4c9ef","fromSide":"bottom","toNode":"f8ba551c1d88b642","toSide":"top"}
+	]
+}

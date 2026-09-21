@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"fb4f3048af2838bb","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250828145344.png","x":-360,"y":-360,"width":460,"height":352},
+		{"id":"6d770a6a927a0db9","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250828150254.png","x":-360,"y":20,"width":495,"height":280},
+		{"id":"168d32023327e8c6","type":"text","text":"C语言在调用函数时，永远只能传值给函数","x":-360,"y":340,"width":365,"height":65},
+		{"id":"9f831aeed4c523be","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250828151923.png","x":-360,"y":440,"width":720,"height":365}
+	],
+	"edges":[]
+}

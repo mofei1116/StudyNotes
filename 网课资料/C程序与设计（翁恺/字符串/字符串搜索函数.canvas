@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"109a0469b0dfaba4","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907133150.png","x":-320,"y":-220,"width":360,"height":280},
+		{"id":"e117cb75ba047ff8","type":"text","text":"stchr从左边开始\nstrrchr从右边开始","x":120,"y":-110,"width":185,"height":60},
+		{"id":"5a2a4b569c99b852","type":"text","text":"#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char s[] = \"Hello\";\n    char* p = strchr(s, 'l');\n    printf(\"%p\\n\", s);\n    p = strchr(p+1, 'l');\n    printf(\"%p\\n\", p);\n    printf(\"%s\\n\", p);\n    return 0;\n}","x":-320,"y":80,"width":340,"height":320},
+		{"id":"b9af87ca6b23885f","type":"text","text":"#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\nint main() {\n    char s[] = \"Hello\";\n    char* p = strchr(s, 'l');\n    char* t = (char*)malloc(strlen(p) + 1);\n    strcpy(t, p);\n    printf(\"%s\\n\", t);\n    free(t);\n    return 0;\n}","x":-320,"y":420,"width":280,"height":380},
+		{"id":"9ca51b0c27f71862","type":"text","text":"复制出l及以后的字符串","x":60,"y":480,"width":222,"height":60},
+		{"id":"297fa41bf0625d52","type":"text","text":"#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\nint main() {\n    char s[] = \"Hello\";\n    char* p = strchr(s, 'l');\n    char c = *p;\n    *p = '\\0';\n    char* t = (char*)malloc(strlen(s) + 1);\n    strcpy(t, s);\n    printf(\"%s\\n\", t);\n    free(t);\n    return 0;\n}","x":-320,"y":820,"width":280,"height":420},
+		{"id":"3a8675028fa8ddf8","type":"text","text":"复制l以前的字符串","x":60,"y":880,"width":185,"height":50},
+		{"id":"315e02d4f4b24e1c","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907140447.png","x":-320,"y":1300,"width":399,"height":221},
+		{"id":"cb6198547fe83f14","type":"text","text":"strcasestr忽略大小写","x":-320,"y":1560,"width":205,"height":50},
+		{"id":"a6b2feb21d70a119","type":"text","text":"搜索第二个l","x":80,"y":140,"width":145,"height":50}
+	],
+	"edges":[
+		{"id":"112c95be45a3af91","fromNode":"109a0469b0dfaba4","fromSide":"right","toNode":"e117cb75ba047ff8","toSide":"left"},
+		{"id":"89d5f12485201714","fromNode":"5a2a4b569c99b852","fromSide":"right","toNode":"a6b2feb21d70a119","toSide":"left"},
+		{"id":"ab6254e2b65514bb","fromNode":"b9af87ca6b23885f","fromSide":"right","toNode":"9ca51b0c27f71862","toSide":"left"},
+		{"id":"9ee904a46a9c4948","fromNode":"297fa41bf0625d52","fromSide":"right","toNode":"3a8675028fa8ddf8","toSide":"left"},
+		{"id":"f0cc7069c49d64d7","fromNode":"315e02d4f4b24e1c","fromSide":"bottom","toNode":"cb6198547fe83f14","toSide":"top"}
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"194cffaf4e22bfba","type":"file","file":"网课资料/数据结构与算法（陈越/排序/归并排序/attachments/Pasted image 20251108114111.png","x":-280,"y":-380,"width":420,"height":299},
+		{"id":"6963c26c248152a5","type":"file","file":"网课资料/数据结构与算法（陈越/排序/归并排序/attachments/Pasted image 20251108114713.png","x":-280,"y":-40,"width":445,"height":320},
+		{"id":"c75775163477b867","type":"text","text":"归并排序常用于外排序","x":220,"y":95,"width":211,"height":50}
+	],
+	"edges":[
+		{"id":"aba9cecde97cb538","fromNode":"6963c26c248152a5","fromSide":"right","toNode":"c75775163477b867","toSide":"left"}
+	]
+}

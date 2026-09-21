@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"5bf6cd962075f972","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020094313.png","x":-360,"y":-340,"width":420,"height":223},
+		{"id":"c5d1a6d5890f4dbb","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020094447.png","x":-360,"y":-60,"width":400,"height":340},
+		{"id":"cc7edd89c9baf8c9","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020095700.png","x":-360,"y":340,"width":400,"height":284},
+		{"id":"38cef660a7125c8f","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020095742.png","x":-360,"y":680,"width":400,"height":215},
+		{"id":"b7bdc5b984420f2a","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020101235.png","x":-360,"y":940,"width":320,"height":163},
+		{"id":"943642e51ae87fcd","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020102509.png","x":-360,"y":1156,"width":260,"height":189},
+		{"id":"d62fb3aeaccbb167","type":"text","text":"flag标志该节点是否被查找过","x":-60,"y":1226,"width":266,"height":50},
+		{"id":"3661025273e24562","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020104323.png","x":-360,"y":1780,"width":540,"height":398},
+		{"id":"d70f5cbc1e0916f8","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020110104.png","x":-360,"y":2220,"width":400,"height":277},
+		{"id":"bfd5524ecbe4e253","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020110511.png","x":-360,"y":2560,"width":462,"height":308},
+		{"id":"4507ff05867ea736","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020112845.png","x":-360,"y":2920,"width":463,"height":300},
+		{"id":"9bb8b59922993a40","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020113543.png","x":-360,"y":3600,"width":400,"height":292},
+		{"id":"2367b81b2dfefda4","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020103520.png","x":-360,"y":1380,"width":499,"height":343},
+		{"id":"319869161d776211","type":"file","file":"网课资料/数据结构与算法（陈越/树/是否是同一颗二叉搜索树/attachments/Pasted image 20251020113304.png","x":-360,"y":3260,"width":487,"height":300}
+	],
+	"edges":[
+		{"id":"0c517069f611aa25","fromNode":"943642e51ae87fcd","fromSide":"right","toNode":"d62fb3aeaccbb167","toSide":"left"}
+	]
+}

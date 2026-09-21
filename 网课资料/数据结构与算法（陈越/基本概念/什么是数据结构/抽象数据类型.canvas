@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"5760934864b5a043","type":"file","file":"网课资料/数据结构与算法（陈越/基本概念/什么是数据结构/attachments/Pasted image 20250927114411.png","x":-400,"y":-320,"width":400,"height":232},
+		{"id":"35345a2e670a7c03","type":"text","text":"逻辑结构：线型，树型，图","x":60,"y":-300,"width":250,"height":60},
+		{"id":"04d41859bc8bd769","type":"text","text":"物理储存结构：连续（数组），分散（链表）","x":60,"y":-160,"width":262,"height":72},
+		{"id":"fd9f9a71a5cb45ab","type":"file","file":"网课资料/数据结构与算法（陈越/基本概念/什么是数据结构/attachments/Pasted image 20250927115725.png","x":-400,"y":300,"width":564,"height":380},
+		{"id":"07ab92a70df8cfad","type":"file","file":"网课资料/数据结构与算法（陈越/基本概念/什么是数据结构/attachments/Pasted image 20250927114752.png","x":-400,"y":-40,"width":400,"height":282}
+	],
+	"edges":[
+		{"id":"36e8af7d32ffe380","fromNode":"5760934864b5a043","fromSide":"right","toNode":"35345a2e670a7c03","toSide":"left"},
+		{"id":"71b9c0fa2afb9961","fromNode":"5760934864b5a043","fromSide":"right","toNode":"04d41859bc8bd769","toSide":"left"}
+	]
+}

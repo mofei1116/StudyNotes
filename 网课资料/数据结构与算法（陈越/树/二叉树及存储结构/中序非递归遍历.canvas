@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"77645a68c371941f","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251014132242.png","x":-340,"y":0,"width":479,"height":346},
+		{"id":"2e166008bcff65b9","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251014131241.png","x":-340,"y":-340,"width":440,"height":269},
+		{"id":"dfb4bd54e2c1848e","type":"file","file":"网课资料/数据结构与算法（陈越/树/二叉树及存储结构/attachments/Pasted image 20251015123050.png","x":-340,"y":380,"width":479,"height":293},
+		{"id":"a0be7404ef75b913","type":"text","text":"第一次碰到节点：压栈\n第二次碰到节点：出栈","x":220,"y":143,"width":219,"height":61},
+		{"id":"ca0d3bc109dda014","type":"text","text":"先序：第一次碰到节点就输出\n中序：第二次碰到输出\n后续：第三次碰到输出","x":180,"y":240,"width":300,"height":92}
+	],
+	"edges":[
+		{"id":"d385cd1dff7d699e","fromNode":"77645a68c371941f","fromSide":"right","toNode":"a0be7404ef75b913","toSide":"left"}
+	]
+}

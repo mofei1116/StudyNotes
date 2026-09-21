@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"d5159d9770f87247","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907105021.png","x":-340,"y":-300,"width":360,"height":270},
+		{"id":"a40e4f7e1b436f1f","type":"text","text":"直接用 == 比较两个数组比较的是两个数组的地址","x":-340,"y":0,"width":400,"height":50},
+		{"id":"4bf2a9ff73bc09a9","type":"text","text":"#include <stdio.h>\n#include <string.h>\n\nint mycmp(const char* s1, const char* s2) {\n    /*int idx=0;\n    while (s1[idx]==s2[idx] && s2[idx]!= '\\0'){\n    idx++;\n    }\n    */\n    while (*s1 == *s2 && *s1 != '\\0') {\n        s1++;\n        s2++;\n    }\n    return *s1 - *s2;\n}\n\nint main() {\n    char s1[] = \"abca\";\n    char s2[] = \"abc\";\n    printf(\"%d\\n\", strcmp(s1, s2));\n    printf(\"%d\\n\", mycmp(s1, s2));\n    return 0;\n}","x":-340,"y":80,"width":380,"height":580}
+	],
+	"edges":[]
+}

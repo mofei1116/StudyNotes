@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"c8858a6d745fea2b","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907102305.png","x":-320,"y":-280,"width":327,"height":280},
+		{"id":"029c7094d081cf14","type":"file","file":"网课资料/C程序与设计（翁恺/attachments/Pasted image 20250907104613.png","x":-320,"y":40,"width":345,"height":240},
+		{"id":"c1fc486cd45762e1","type":"text","text":"#include <stdio.h>\n\n#include <string.h>\n\n  \n\nint mystrlen(const char* s) {\n\n    int i;\n\n    for (i = 0;s[i] != '\\0';i++) {\n\n    };\n\n    return i;\n\n}\n\n  \n\nint main() {//argc:字符个数\n\n    char line[] = \"Hello\";\n\n    printf(\"mystrlen=%d\\n\", mystrlen(line));\n\n    printf(\"strlen=%llu\\n\", strlen(line));\n\n    printf(\"sizeof=%llu\\n\", sizeof(line));\n\n    return 0;\n\n}","x":-320,"y":320,"width":400,"height":620}
+	],
+	"edges":[]
+}
