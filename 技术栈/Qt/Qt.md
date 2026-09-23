@@ -45,7 +45,7 @@ spacers弹簧可以实现居中效果
 
 发送者（比如QPushButton）发送信号（比如clicked()）给接收者（比如QWidget），接收者执行槽函数（比如close()）
 
-槽函数函数名的命名规范：`on_发送者的对象名_信号`，比如`on_bntCalcu_clicked()`
+自动连接的槽函数函数名的命名规范：`on_发送者的对象名_信号`，比如`on_bntCalcu_clicked()`
 
 ## qrc文件
 
@@ -120,6 +120,12 @@ clangd是一个代码检查工具，需要服务器端运行clangd服务
 
 1. 安装cmake并配置环境变量
 2. 在vscode安装cmake插件
+
+## 库文件
+
+可能需要将一些文件复制到可执行文件的同一目录下
+
+如Qt6Core.dll，Qt6Gui.dll，Qt6Widgets.dll，Qt6Sql.dll等
 
 # Qt对象管理
 
@@ -575,6 +581,8 @@ Qt对象之间要支持元对象系统才能实现信号和槽
 4. 槽函数的参数原则上要和信号函数的参数对应，若槽函数的参数个数比信号函数的参数个数多，编译会报错
 
 利用静态方法`QObject::connect()`建立信号和槽之间的连接
+
+自动连接信号和槽，槽函数命名规范：`on_发送者的对象名_信号`
 
 调用信号函数发送信号，调用前面加emit宏，本质上只是一个标识
 
@@ -1760,3 +1768,687 @@ void SeniorPainter::base02() {
 
 不动图形，动画布
 
+- translate(x,y)：平移坐标坐标轴
+- rotate(angle)：顺时针旋转坐标轴，angle表示度数
+- scale(x,y)：缩放坐标轴
+
+```Cpp
+//画一个表盘  
+void SeniorPainter::base03() {  
+    QPainter painter(this);  
+    painter.setRenderHints(QPainter::Antialiasing|QPainter::TextAntialiasing);  
+  
+    qreal W=width();  
+    qreal H=height();  
+    qreal side=qMin(W,H);  
+    painter.translate(W/2,H/2);    //平移坐标原点到窗口中心  
+    painter.scale(side/200.0,side/200.0);    //缩放，使图形自适应窗口大小，假设逻辑坐标范围[-100,100]  
+    painter.setPen(Qt::black);    //设置黑色画笔  
+    for (int i=0;i<12;i++) {    //画12个刻度  
+        if (i%3==0) {  
+            painter.save();    //保存painter状态  
+            //设置画笔宽度  
+            QPen pen=painter.pen();  
+            pen.setWidth(3);  
+            painter.setPen(pen);  
+            //画刻度  
+            painter.drawLine(88,0,96,0);  
+            painter.restore();    //恢复painter状态  
+        }  
+        else {  
+            //画刻度  
+            painter.drawLine(88,0,96,0);  
+        }  
+        painter.rotate(30.0);  
+    }  
+}
+```
+
+## 实例
+
+汽车仪表盘动画效果显示
+
+```Cpp title:"SpeedWidget.h"
+#ifndef SPEEDMETER_SPEEDWIDGET_H  
+#define SPEEDMETER_SPEEDWIDGET_H  
+  
+#include <QWidget>  
+#include <QPainter>  
+#include <QPainterPath>  
+#include <QPropertyAnimation>  
+  
+class SpeedWidget:public QWidget {  
+    Q_OBJECT  
+public:  
+    Q_PROPERTY(qreal speed READ getSpeed WRITE setSpeed)  
+    explicit SpeedWidget(QWidget* parent=nullptr);  
+    ~SpeedWidget()override=default;  
+protected:  
+    void paintEvent(QPaintEvent *event) override;  
+public slots:  
+    void setSpeed(qreal speed);  
+    qreal getSpeed()const;  
+    void animationToSpeed(qreal target);    //动画效果实现指针移动  
+private:  
+    qreal m_speed;  
+    QPropertyAnimation* m_animation;  
+};  
+  
+  
+#endif //SPEEDMETER_SPEEDWIDGET_H
+```
+
+```Cpp title:"SpeedWidget.cpp"
+  
+  
+#include "SpeedWidget.h"  
+#include <QString>  
+#include <QDebug>  
+  
+SpeedWidget::SpeedWidget(QWidget *parent):QWidget(parent),m_speed(0.0),m_animation(nullptr)  {  
+}  
+  
+void SpeedWidget::paintEvent(QPaintEvent *event) {  
+    QPainter painter(this);  
+    painter.setRenderHints(QPainter::Antialiasing|QPainter::TextAntialiasing);  
+    int w=width();  
+    int h=height();  
+    int side=qMin(w,h);  
+    //移动坐标原点到控件中心  
+    painter.translate(w/2.0,h/2.0);  
+    //将x轴和y轴缩放在[-105,105]之间  
+    painter.scale(side/210.0,side/210.0);  
+  
+    //绘制外边框  
+    painter.save();  
+    painter.setPen(QPen(Qt::yellow,2));  
+    painter.drawEllipse(-100,-100,200,200);  
+    painter.restore();  
+  
+    //绘制刻度  
+    qreal startAngle=150;    //起始角度  
+    qreal rangeAngle=240;    //总范围角度  
+    qreal maxSpeed=240;    //最大速度  
+    for (int i=0;i<=24;i++) {  
+        painter.save();  
+        qreal curAngle=startAngle+i*(rangeAngle/24.0);    //当前角度  
+        painter.rotate(curAngle);    //旋转坐标轴  
+        //画刻度  
+        if (i%2==0) {  
+            painter.setPen(QPen(Qt::black,2));  
+            painter.drawLine(80,0,95,0);  
+            int speed_value=i*10;  
+            //移动坐标轴到显示文字的位置  
+            painter.translate(70,0);  
+            //把坐标轴旋转回去，实现文字水平显示  
+            painter.rotate(-curAngle);  
+            //绘制文字  
+            QRect textRect(-10,-10,20,20);    //文本框  
+            QFont font=painter.font();  
+            font.setPointSize(6);  
+            painter.setFont(font);    //设置字体大小  
+            painter.drawText(textRect,Qt::AlignCenter,QString::number(speed_value));    //居中绘制自已  
+        }  
+        else {  
+            painter.setPen(QPen(Qt::black,1));  
+            painter.drawLine(85,0,95,0);  
+        }  
+        painter.restore();  
+    }  
+  
+    //绘制镂空指针  
+    painter.save();  
+    //计算指针角度  
+    qreal SpeedAngle=startAngle+(m_speed/maxSpeed)*rangeAngle;  
+    painter.rotate(SpeedAngle);  
+    //设置指针镂空效果  
+    QPainterPath bigNeedle;  
+    bigNeedle.addPolygon(QPolygonF{QPointF(0,4),QPointF(80,0),QPointF(0,-4)});  
+    QPainterPath smallNeedle;  
+    smallNeedle.addPolygon(QPolygonF{QPointF(4,2),QPointF(50,0),QPointF(4,-2)});  
+    QPainterPath result=bigNeedle.subtracted(smallNeedle);  
+    painter.setBrush(Qt::red);  
+    painter.setPen(Qt::black);  
+    painter.drawPath(result);  
+    painter.restore();  
+  
+    //画单位  
+    painter.save();  
+    QRect textRect(-20,60,40,25);  
+    QFont font=painter.font();  
+    font.setPointSize(8);  
+    painter.setFont(font);  
+    painter.drawText(textRect,Qt::AlignCenter,QString("km/h"));  
+    painter.restore();  
+}  
+  
+void SpeedWidget::setSpeed(qreal speed) {  
+    m_speed=speed;  
+    update();  
+}  
+  
+qreal SpeedWidget::getSpeed()const {  
+    return m_speed;  
+}  
+  
+void SpeedWidget::animationToSpeed(qreal target) {  
+    qreal max_speed=240;  
+    if (target<0)target=0;  
+    else if (target>max_speed)target=max_speed;  
+    if (!m_animation) {  
+        m_animation=new QPropertyAnimation(this,"speed",this);  
+        m_animation->setEasingCurve(QEasingCurve::OutQuad);  
+    }  
+    m_animation->stop();  
+    m_animation->setStartValue(m_speed);    //设置开始目标  
+    m_animation->setEndValue(target);    //设置终止目标  
+    m_animation->setDuration(1500);    //设置动画持续时间  
+    m_animation->start();  
+}
+```
+
+```Cpp title:"MainWidget.h"
+  
+#ifndef SPEEDMETER_MAINWIDGET_H  
+#define SPEEDMETER_MAINWIDGET_H  
+  
+#include <QWidget>  
+#include <QPushButton>  
+#include <QLineEdit>  
+#include <QLayout>  
+#include "SpeedWidget.h"  
+  
+class MainWidget:public QWidget {  
+    Q_OBJECT  
+public:  
+    explicit MainWidget(QWidget* parent=nullptr);  
+    ~MainWidget()override=default;  
+private:  
+    SpeedWidget* m_speed_widget;  
+};  
+  
+#endif //SPEEDMETER_MAINWIDGET_H
+```
+
+```Cpp title:"MainWidget.cpp"
+  
+#include "MainWidget.h"  
+  
+MainWidget::MainWidget(QWidget *parent):QWidget(parent){  
+  
+    //设置布局  
+    auto* main_layout=new QVBoxLayout(this);  
+    auto* ctl_widget=new QWidget(this);  
+    auto* ctl_layout=new QHBoxLayout();  
+    ctl_widget->setLayout(ctl_layout);  
+  
+    //添加控件  
+    auto* bnt_start=new QPushButton("确认",ctl_widget);  
+    auto* edit_value=new QLineEdit(ctl_widget);  
+    ctl_layout->addWidget(edit_value);  
+    ctl_layout->addWidget(bnt_start);  
+    m_speed_widget=new SpeedWidget(ctl_widget);  
+    main_layout->addWidget(m_speed_widget);  
+    main_layout->addWidget(ctl_widget);  
+    main_layout->setStretch(0,9);  
+    main_layout->setStretch(1,1);  
+  
+    //设置信号和槽函数关联  
+    connect(bnt_start,&QPushButton::clicked,this,[this,edit_value] {  
+        bool ok=false;  
+        double value=edit_value->text().toDouble(&ok);  
+        if (ok) {  
+            //m_speed_widget->setSpeed(value);  
+            m_speed_widget->animationToSpeed(value);  
+        }  
+    });  
+  
+    resize(400,420);  
+}
+```
+
+# Qt数据库编程
+
+Qt SQL模块提供对数据库的支持，该模块中的众多类分为3层：
+- 驱动层：为具体的数据库和SQL接口层提供桥梁
+- SQL接口层：提供对数据库的访问
+- 用户接口层：可以将数据库中的数据链接到窗口控件上
+
+| 层次 | 包含的类 |
+|------|----------|
+| 用户接口层 | QSqlQueryModel、QSqlTableModel 和 QSqlRelationalTableModel |
+| SQL 接口层 | QSqlDatabase、QSqlQuery、QSqlError、QSqlField、QSqlIndex 和 QSqlRecord |
+| 驱动层 | QSqlDriver、QSqlDriverCreator、QSqlDriverCreatorBase、QSqlDriverPlugin 和 QSqlResult |
+
+在clion中使用sql模块，需要将Qt6Sql.dll库复制到可执行文件所在目录，将sqldrivers目录复制到plugins目录
+
+## 数据库连接
+
+Qt数据库模块使用数据库驱动插件和不同的数据库通信
+
+静态方法QSqlDatabase::drivers()返回可用的数据库驱动名列表，驱动库文件在sqldriver目录下
+
+静态接口QSqlDatabase::addDatabase()创建数据库连接
+
+```Cpp
+QStringList drivers=QSqlDatabase::drivers();    //获取可用的数据库驱动  
+for (QString& d:drivers) {  
+    qDebug()<<d;  
+}  
+  
+//得到数据库对象  
+QSqlDatabase db=QSqlDatabase::addDatabase("QSQLITE","first");  
+db.setDatabaseName("D:/Database/test.db");   
+if (!db.open()) {  
+    qDebug()<<"database open error: "<<db.lastError().text();  
+    return -1;  
+}  
+qDebug()<<"database open success";
+```
+
+## 执行SQL语句
+
+创建一个QSqlQuery对象，然后调用QSqlQuery::exec()函数执行一条sql语句
+
+执行exec()函数后，QSqlQuery内部指针指向第一条记录前面的位置，调用QSqlQuery::next()往后偏移指针
+
+QSqlQuery::value()返回当前记录的一个字段值，value(0)表示第一个字段，也可以按字段名获取值
+
+```Cpp
+//执行sql语句  
+void insertData01(QSqlDatabase& db) {  
+    QSqlQuery query(db);  
+    //插入数据  
+    bool res=query.exec("insert into Student(name,age) values('mofei',18);");  
+    if (res) {  
+        qDebug()<<"insert success";  
+    }  
+    else {  
+        qDebug()<<"insert error: "<<query.lastError().text();  
+    }  
+}  
+  
+//给要执行的sql语句绑定参数  
+void insertData02(QSqlDatabase& db,const char* name,int age){  
+    QSqlQuery query(db);  
+    query.prepare("insert into Student(name,age) values(:_name,:_age);");  
+    query.bindValue(":_name",QString(name));  
+    query.bindValue(":_age",age);  
+    bool res=query.exec();  
+    if (res) {  
+        qDebug()<<"insert success";  
+    }  
+    else {  
+        qDebug()<<"insert error: "<<query.lastError().text();  
+    }  
+}  
+  
+//给多条sql语句绑定参数  
+void insertData03(QSqlDatabase& db) {  
+    QSqlQuery query(db);  
+    query.prepare("insert into Student(name,age) values(:_name,:_age);");  
+    QVariantList names;  
+    names<<"x1"<<"x2"<<"x3";  
+    QVariantList ages;  
+    ages<<18<<19<<20;  
+    query.bindValue(":_name",names);  
+    query.bindValue(":_age",ages);  
+    if (query.execBatch()) {//执行批处理  
+        qDebug()<<"insert success";  
+    }  
+    else {  
+        qDebug()<<"insert error: "<<query.lastError().text();  
+    }  
+}  
+  
+//执行sql的查询语句  
+void queryTable(QSqlDatabase& db) {  
+    QSqlQuery query(db);  
+    if (query.exec("SELECT * FROM Student;")) {  
+        while (query.next()) {    //获取每行  
+            QString name=query.value("name").toString();  
+            int age=query.value("age").toInt();  
+            qDebug()<<"name:"<<name<<" age:"<<age;  
+        }  
+    }  
+}
+```
+
+## MVD模型
+
+MVD模型：
+- 模型（Model）：应用对象，用来表示数据，模型于数据源进行通信
+- 视图（View）：模型的用户界面，用来显示数据，从模型中获得模型索引（Model Index），用来表示数据项
+- 委托（Delegaete）：代理，可以定制数据的渲染和编辑方式
+
+![[Pasted image 20260922211513.png | MVD]]
+
+除了QSqlQuery，Qt提供了3个更高级的类来访问数据库：QSqlQueryModel，QSqlTableMode，QSqlRelationalTableModel（针对有外键）
+
+控件执行setModel()渲染模型中的数据
+
+### 查询模型
+
+绑定sql语句，QSqlQueryModel中储存执行完setQery()后的结果集
+
+对模型的数据只读
+
+```Cpp
+Win::Win(QWidget *parent) : QWidget(parent), ui(new Ui::Win) {  
+    ui->setupUi(this);  
+    m_db=QSqlDatabase::addDatabase("QSQLITE","first");  
+    m_db.setDatabaseName("D:/Database/test.db");  
+    if (!m_db.open()) {  
+        QMessageBox::critical(this,"警告",QString("database open error:%1").arg(m_db.lastError().text()));  
+        return;  
+    }  
+  
+    // 使用QueryModel模型  
+    auto* model=new QSqlQueryModel(this);  
+    model->setQuery("SELECT * FROM Student;",QSqlDatabase::database("first"));    //绑定sql语句    
+}
+```
+
+### 表格模型
+
+默认可读可写
+
+#### 表格操作
+
+setTable()指定数据库表，然后select()刷新sort和filter进行查询：
+
+```Cpp
+Win::Win(QWidget *parent) : QWidget(parent), ui(new Ui::Win) {  
+    ui->setupUi(this);  
+    m_db=QSqlDatabase::addDatabase("QSQLITE","first");  
+    m_db.setDatabaseName("D:/Database/test.db");  
+    if (!m_db.open()) {  
+        QMessageBox::critical(this,"警告",QString("database open error:%1").arg(m_db.lastError().text()));  
+        return;  
+    }  
+    
+    //使用TableModel模型  
+    m_model=new QSqlTableModel(this,m_db);  
+    m_model->setTable("Student");    //绑定表  
+    m_model->select();
+    setupModel();  
+  
+    ui->tableView->setModel(m_model);  
+    setupView();  
+    
+    //将性别代理绑定到gender列  
+	ui->tableView->setItemDelegateForColumn(3,new GenderDelegate(this));
+}
+```
+
+设置编辑策略：
+- QSqlTableModel::OnFieldChange：对模型的更改立即同步到数据库
+- QSqlTableModel::OnRowChange：一条记录的同步会在用户选择另一条记录时被应用
+- QSqlTableModel::OnManualSubmit：缓存改变，直到调用submitAll()或revertAll()函数
+
+设置模型：
+```Cpp
+void Win::setupModel() {  
+    //修改每一列的列名  
+    m_model->setHeaderData(0,Qt::Horizontal,"学号");  
+    m_model->setHeaderData(1,Qt::Horizontal,"姓名");  
+    m_model->setHeaderData(2,Qt::Horizontal,"年龄");  
+    //缓存用户对表的更新  
+    m_model->setEditStrategy(QSqlTableModel::OnManualSubmit);    //手动提交  
+}
+```
+
+设置视图：
+```Cpp
+void Win::setupView() {  
+    //添加隔行换色斑马线效果  
+    ui->tableView->setAlternatingRowColors(true);  
+    //隐藏左侧行号  
+    ui->tableView->verticalHeader()->hide();  
+    //设置自动缩放  
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  
+    //设置点击时聚焦整行而不是单元格  
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);  
+    //隐藏某一列  
+    ui->tableView->setColumnHidden(0,true);  
+}
+```
+
+提交操作：database().transaction()开启事务，调用submitAll()后database().commit()提交事务，database().rollback()回滚事务
+```Cpp
+void Win::on_bntSubmit_clicked() {  
+    //开启事务  
+    m_model->database().transaction();  
+    if (m_model->submitAll()) {  
+        if (m_model->database().commit()) {    //提交事务  
+            QMessageBox::about(this,"TableModel",QString("数据修改成功"));  
+        }  
+    }  
+    else {  
+        m_model->database().rollback();    //回滚事务  
+        QMessageBox::about(this,"TableModel",QString("数据库错误:%1").arg(m_model->lastError().text()));  
+    }  
+}
+```
+
+撤销操作：revertAll()
+```Cpp
+void Win::on_bntCancel_clicked() {  
+    m_model->revertAll();    //撤销修改  
+}
+```
+
+添加行：insertRow()
+```Cpp
+void Win::on_bntAdd_clicked() {  
+    //获取表的行数  
+    int row_num=m_model->rowCount();  
+    m_model->insertRow(row_num);    //下标从0开始  
+}
+```
+
+删除行：currentIndex().row()获取选中的行，removeRow()删除行，删除后submitAll()提交更改，revertAll()撤销更改
+```Cpp
+void Win::on_bntDele_clicked() {  
+    //获取选中的行  
+    int cur_row=ui->tableView->currentIndex().row();  
+    //删除行  
+    m_model->removeRow(cur_row);  
+    //弹出数据框，实现数据更改  
+    auto choose=QMessageBox::warning(this,"删除当前行",QString("确定删除当前行吗?"),QMessageBox::Yes,QMessageBox::No);  
+    if (choose==QMessageBox::Yes) {  
+        m_model->submitAll();  
+    }  
+    else {  
+        m_model->revertAll();  
+    }  
+}
+```
+
+指定排序：setSort()
+```Cpp
+void Win::on_bntAsc_clicked() {  
+    m_model->setSort(2,Qt::AscendingOrder);  
+    m_model->select();  
+}  
+  
+void Win::on_bntDesc_clicked() {  
+    m_model->setSort(2,Qt::DescendingOrder);  
+    m_model->select();  
+}
+```
+
+设置过滤条件：setFilter()
+```Cpp
+void Win::on_bntQuery_clicked() {  
+    QString input_name = ui->queryData->text();   //从QLineEdit获取数据  
+    m_model->setFilter(QString("name='%1'").arg(input_name));  
+    m_model->select();  
+}
+```
+
+重新设置表（重新显示全表）：
+```Cpp
+void Win::on_bntAll_clicked() {  
+    m_model->setTable("Student");    //重新设置表  
+    m_model->select();  
+    setupModel();  
+    setupView();  
+}
+```
+
+#### 设计代理类显示
+
+交互可以由代理执行
+
+对一列使用代理：将代理绑定到view：setItemDelegateForColumn()
+
+QAbstractItemDelegate基类，派生了QStyledItemDelegate
+
+自定义的代理类需要继承`QStyledItemDelegate`
+
+重写虚函数：
+- displayText()：处理显示逻辑
+- createEditor()：创建编辑器用于交互
+- setEditorData()：将model中的数据设置到编辑器
+- setModelData()：将编辑器中的数据写回model
+
+```Cpp title:"GenderDelegate.h"
+#ifndef SQLITE02_GENDERDELEGATE_H  
+#define SQLITE02_GENDERDELEGATE_H  
+  
+#include <QStyledItemDelegate>  
+#include <QString>  
+#include <QVariant>  
+#include <QObject>  
+#include <QComboBox>  
+#include <QLocale>  
+  
+class GenderDelegate:public QStyledItemDelegate {  
+    Q_OBJECT  
+public:  
+    explicit GenderDelegate(QObject *parent = nullptr);  
+    ~GenderDelegate()override=default;  
+  
+    //重写虚函数
+    QString displayText(const QVariant &value, const QLocale &locale) const override;  
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;  
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;  
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;  
+};  
+  
+  
+#endif //SQLITE02_GENDERDELEGATE_H
+```
+
+```Cpp
+  
+#include "GenderDelegate.h"  
+  
+GenderDelegate::GenderDelegate(QObject *parent):QStyledItemDelegate(parent) {}  
+  
+//处理显示逻辑，将value转换成什么样的字符交给view  
+QString GenderDelegate::displayText(const QVariant &value, const QLocale &locale) const {  
+    int val=value.toInt();  
+    if (val==1) {  
+        return "男";  
+    }  
+    else {  
+        return "女";  
+    }  
+}  
+  
+//创建编辑器和用户交互  
+QWidget * GenderDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option,  
+    const QModelIndex &index) const {  
+    QComboBox* editor=new QComboBox(parent);    //创建下拉表  
+    editor->addItem("女",0);  
+    editor->addItem("男",1);  
+    return editor;  
+}  
+  
+//将model的数据设置到编辑器  
+void GenderDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const {  
+    QStyledItemDelegate::setEditorData(editor, index);  
+  
+    int value=index.model()->data(index,Qt::EditRole).toInt();    //获取model中的值  
+    auto* combo_box=static_cast<QComboBox*>(editor);  
+    combo_box->setCurrentIndex(combo_box->findData(value));  
+}  
+  
+//将编辑器的数据返回给model  
+void GenderDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const {  
+    auto* combo_box=static_cast<QComboBox*>(editor);  
+    int value=combo_box->currentData().toInt();    //获取编辑器的值  
+    model->setData(index,value,Qt::EditRole);  
+}
+```
+
+### 关系表格模型
+
+QSqlRelationalTableModel继承自QSqlTableModel，提供了对外键的支持
+
+使用setRelation设置关联关系
+
+使用QSqlRelationalDelegate设置有主外键关联关系的代理
+
+```Cpp
+  
+#include "dbwidget.h"  
+  
+DBWidget::DBWidget(QWidget *parent) : QWidget(parent), ui(new Ui::DBWidget) {  
+    ui->setupUi(this);  
+    m_db=QSqlDatabase::addDatabase("QSQLITE");  
+    m_db.setDatabaseName("D:/Database/test.db");  
+    if (!m_db.open()) {  
+        qDebug()<<"database open error: "<<m_db.lastError().text();  
+    }  
+  
+    model= new QSqlRelationalTableModel(this,m_db);  
+    model->setTable("books");    //含有外键的表格  
+    //设置外键关系，设置关联的表，外键关联的列，要显示的列  
+    model->setRelation(4,QSqlRelation("category","id","name"));  
+  
+    //设置代理，点击分类单元格时，生成一个下拉框  
+    ui->tableView->setItemDelegate(new QSqlRelationalDelegate(ui->tableView));  
+  
+    setMV();  
+  
+    //填充分类查询的选项  
+    category_model=new QSqlTableModel(this,m_db);  
+    category_model->setTable("category");    //外键关联的表格  
+    category_model->select();  
+    ui->comboFilter->setModel(category_model);    //绑定模型  
+    ui->comboFilter->setModelColumn(1);    //指定要显示的列  
+}  
+  
+DBWidget::~DBWidget() {  
+    delete ui;  
+}  
+  
+void DBWidget::on_bntQuery_clicked() {  
+    //获取当前下拉框中的值对应模型中的索引  
+    auto current_row=ui->comboFilter->currentIndex();  
+    //从categoryModel中提取对应的字段值  
+    QModelIndex idIndex=category_model->index(current_row,0);  
+    QString categoryID=category_model->data(idIndex).toString();  
+  
+    //设置筛选条件  
+    model->setFilter(QString("category_id=%1").arg(categoryID));  
+    model->select();  
+}  
+  
+void DBWidget::on_bntAll_clicked() {  
+    model->setFilter("");    //将筛选条件设为空  
+    model->select();  
+}  
+  
+void DBWidget::setMV() {  
+    //设置模型和视图  
+    model->setHeaderData(4,Qt::Horizontal,QString("图书分类"),Qt::EditRole);  
+    model->setEditStrategy(QSqlTableModel::OnManualSubmit);  
+    model->select();  
+    ui->tableView->setModel(model);  
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  
+}
+```

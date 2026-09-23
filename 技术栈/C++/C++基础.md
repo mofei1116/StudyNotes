@@ -49,6 +49,7 @@ struct person{
 
 - `int b=(int)a;   //C方式`
 - `int b=int(a);`
+- `static_cast<type> (expr)`：基本的类型转换，编译时期转换
 - `const_cast<type> (expr)`：增加或去除expr的const属性，expr源类型必须与type类型相同
 - `reinterpret_cast<type> (expr)`：将一种类型的指针转换为其他类型的指针
 
