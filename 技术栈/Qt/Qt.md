@@ -127,6 +127,8 @@ clangd是一个代码检查工具，需要服务器端运行clangd服务
 
 如Qt6Core.dll，Qt6Gui.dll，Qt6Widgets.dll，Qt6Sql.dll等
 
+或利用Qt的windeployqt工具自动配置缺少的环境
+
 # Qt对象管理
 
 ## 对象树
@@ -2450,5 +2452,232 @@ void DBWidget::setMV() {
     model->select();  
     ui->tableView->setModel(model);  
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);  
+}
+```
+
+# 网络服务编程
+
+Qt的网络编程和传统的socket网络编程区别：
+- Qt基于事件循环的特点封装了由信号驱动的网络编程类
+- 用于TCP通信的QTcpSocket和QTcpServer
+- 用于UDP通信的QUdpSocket
+
+网络编程框架：
+
+![[Pasted image 20260923144226.png| 网络编程框架]]
+
+## UDP网络编程
+
+bind()绑定地址信息
+
+readyRead()信号表示有可读的数据报，绑定槽函数执行读逻辑
+
+readDatagram()读取数据报
+writeDatagram()写入数据报
+
+errorOccurred()信号表示发生错误
+
+errorString()返回错误信息
+
+close()关闭套接字
+
+```Cpp title:"udpWin.h"
+#include "udpwin.h"  
+#include "ui_UDPWin.h"  
+  
+  
+UDPWin::UDPWin(QWidget *parent) : QWidget(parent), ui(new Ui::UDPWin),running(false) {  
+    ui->setupUi(this);  
+    m_udp=new QUdpSocket(this);  
+    connect(m_udp,&QUdpSocket::readyRead,this,&UDPWin::dataReceive);  
+    connect(m_udp,&QUdpSocket::errorOccurred,this,[&]() {  
+        qDebug()<<"socket error: "<<m_udp->errorString();  
+    });  
+}  
+  
+UDPWin::~UDPWin() {  
+    m_udp->close();    //关闭socket  
+    delete ui;  
+}  
+  
+void UDPWin::on_bntStart_clicked() {  
+    if (!running) {  
+        //获取监听的端口号  
+        bool ok;  
+        quint16 port=ui->bindEdit->text().toUInt(&ok);  
+        if (!ok) {  
+            QMessageBox::critical(this,"端口号错误","端口号格式错误");  
+            return;  
+        }  
+        //绑定地址信息  
+        ok=m_udp->bind(QHostAddress::AnyIPv4,port);    //监听主机上的所有ipv4地址  
+        if (!ok) {  
+            QMessageBox::critical(this,"服务启动作错误",m_udp->errorString());  
+            return;  
+        }  
+        QMessageBox::about(this,"服务状态","UDP服务启动成功");  
+        ui->bntStart->setText("关闭服务");  
+        running=true;  
+    }  
+    else {  
+        m_udp->close();  
+        ui->bntStart->setText("开启服务");  
+        running=false;  
+    }  
+}  
+  
+//和m_udp的dataReceive绑定  
+void UDPWin::dataReceive() {  
+    while (m_udp->hasPendingDatagrams()) {    //是否有数据报等待被读  
+        QByteArray datagram;    //用于接收读到的数据报  
+        datagram.resize(m_udp->pendingDatagramSize());    //大小重置为等待读取的数据报大小  
+        QHostAddress peerAddr;    //用于接收对端地址  
+        quint16 peerPort;     //用于接收对端端口号  
+        m_udp->readDatagram(datagram.data(),datagram.size(),&peerAddr,&peerPort);    //读取数据  
+        if (datagram.size()<=0) {  
+            return;    //空的数据报直接return  
+        }  
+        QString log=QString("[from: %1:%2]# %3").arg(peerAddr.toString()).arg(peerPort).arg(datagram.data());    //封装消息  
+        ui->listWidget->addItem(log);    //向消息列表中添加消息  
+    }  
+}  
+  
+void UDPWin::on_bntSend_clicked() {  
+    QString targetIP=ui->IPEdit->text();  
+    QHostAddress targetAddr(targetIP);  
+    quint16 targetPort=ui->portEdit->text().toUInt();  
+    QString msg=ui->msgEdit->toPlainText();    //获取要发送的信息  
+    m_udp->writeDatagram(msg.toUtf8(),targetAddr,targetPort);  
+}
+```
+
+## TCP服务编程
+
+QTcpServer：
+- listen()：启动监听
+- isListening()：判断是否在监听
+- newConnection()信号：有新的客户端连接
+- 有新的客户端连接时，QTcpServer内部的incommingConnection()会创建一个QTcpSocket对象，可以重写
+- nextPendingConnection()：接收一个客户端连接
+- 使用QTcpSocket与客户端通信
+	- readAll()读取所有可读的数据
+	- write()写入套接字
+	- disconnected()信号：连接已断开
+	- state()获取连接状态
+
+客户端使用connectToHost()连接服务器端
+
+
+```Cpp title:"tcpWin.h"
+#ifndef TCPTEST_TCPWIN_H  
+#define TCPTEST_TCPWIN_H  
+
+#include <QDebug>  
+#include <QTcpServer>  
+#include <QtcpSocket>  
+#include <QMessageBox>  
+#include <QList>  
+  
+QT_BEGIN_NAMESPACE  
+  
+namespace Ui {  
+    class TcpWin;  
+}  
+  
+QT_END_NAMESPACE  
+  
+class TcpWin : public QWidget {  
+    Q_OBJECT  
+  
+public:  
+    explicit TcpWin(QWidget *parent = nullptr);  
+  
+    ~TcpWin() override;  
+public slots:  
+    void new_connect_handler();  
+    void on_bntStart_clicked();  
+    void on_bntClose_clicked();  
+  
+private:  
+    Ui::TcpWin *ui;  
+    QTcpServer* m_tcpServer=nullptr;  
+    QList<QTcpSocket*> client_list;  
+};  
+  
+  
+#endif //TCPTEST_TCPWIN_H
+```
+
+```Cpp title:"tcpWin.cpp"
+  
+#include "tcpwin.h"  
+#include "ui_TcpWin.h"  
+  
+  
+TcpWin::TcpWin(QWidget *parent) : QWidget(parent), ui(new Ui::TcpWin) {  
+    ui->setupUi(this);  
+    ui->bntClose->setEnabled(false);    //关闭bntClose按钮  
+    ui->bntStart->setEnabled(true);    //打开bntStart按钮  
+    m_tcpServer=new QTcpServer(this);  
+  
+    connect(m_tcpServer,&QTcpServer::newConnection,this,&TcpWin::new_connect_handler);  
+}  
+  
+TcpWin::~TcpWin() {  
+    delete ui;  
+    m_tcpServer->close();  
+}  
+  
+void TcpWin::new_connect_handler() {  
+  
+    qDebug()<<"handle a new connection";  
+    QTcpSocket* new_client=m_tcpServer->nextPendingConnection();    //获取一个新的客户端连接  
+    QString log=QString("[%1:%2] new client is online").arg(new_client->peerAddress().toString()).arg(new_client->peerPort());  
+    ui->listWidget->addItem(log);  
+    //client_list.append(new_client);  
+  
+    connect(new_client,&QTcpSocket::readyRead,this,[=]() {  
+        QString request=new_client->readAll();  
+        QString response=QString("&& %1 &&").arg(request);  
+        new_client->write(response.toUtf8());  
+    });  
+  
+    connect(new_client,&QTcpSocket::disconnected,this,[=]() {  
+        new_client->close();  
+        new_client->deleteLater();    //回收资源  
+        QString log=QString("[%1:%2]client is offline").arg(new_client->peerAddress().toString()).arg(new_client->peerPort());  
+        ui->listWidget->addItem(log);  
+    });  
+}  
+  
+void TcpWin::on_bntStart_clicked() {  
+    bool ok=false;  
+    quint16 port=ui->portEdit->text().toUInt(&ok);  
+    if (!ok) {  
+        QMessageBox::critical(this,"端口号错误","端口号格式错误");  
+        return;  
+    }  
+    ok=m_tcpServer->listen(QHostAddress::AnyIPv4,port);  
+    if (!ok) {  
+        QMessageBox::critical(this,"服务器启动失败",m_tcpServer->errorString());  
+        return;  
+    }  
+    ui->bntClose->setEnabled(true);    //打开bntClose按钮  
+    ui->bntStart->setEnabled(false);    //关闭bntStart按钮  
+    ui->listWidget->addItem(QString("TCP server started running, listen on :%1").arg(port));  
+}  
+  
+void TcpWin::on_bntClose_clicked() {  
+    //停止监听  
+    if (m_tcpServer->isListening()) {  
+        m_tcpServer->close();  
+    }  
+    // //遍历已有的所有客户端连接  
+    // for (auto* socket:client_list) {  
+    //     if (socket->state()==QAbstractSocket::ConnectingState) {    //保持连接  
+    //         socket->disconnectFromHost();  
+    //         //socket->deleteLater();    //     }    // }    client_list.clear();  
+    ui->bntClose->setEnabled(false);    //关闭bntClose按钮  
+    ui->bntStart->setEnabled(true);    //打开bntStart按钮  
 }
 ```
