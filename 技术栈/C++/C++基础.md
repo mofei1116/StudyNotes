@@ -217,6 +217,63 @@ void test01(){
 - `NULL`本质是一个宏定义，在C++中退化成数值0，在C++11舍弃
 - `nullptr`本质上是一个关键字，特指空指针，只能赋值给指针类型
 
+## 智能指针
+
+> 避免内存泄漏，头文件`<memory>`，由类模板实现
+
+自动回收内存，不用手动`delete`回收
+
+### shared_ptr
+
+多个`shared_ptr`指针共用一块内存，使用引用计数机制，计数为0自动释放内存，空指针不计数
+
+- 成员函数`use_count()`返回计数
+
+#### 构建
+
+- `shared_ptr<int> p(new int(5));`，`new`分配
+- `shared_ptr<int> p=make_shared<int>(5);`，`make_shared`成员函数
+- `shared_ptr<int> p(p1);`，拷贝构造
+- `shared_ptr<int> p(move(p1))`，移动构造
+
+#### 释放
+
+需要在构造时时定释放规则
+
+- `shared_ptr<int> p(new int,default_delete<int>());`，使用默认释放规则，默认释放规则不能释放数组
+- `shared_ptr<int> p(new int[3],funct)`，`funct`为自定义释放规则函数
+
+### unique_ptr
+
+不允许多个unique_ptr指向同一个对象
+
+所有权可以通过std::move()转移
+
+### weak_ptr
+
+`weak_ptr`不会增加引用计数，观察对象但不拥有对象
+
+成员函数：
+- `expired()`：若对象已销毁返回真，还存在返回假，只检查状态
+- `lock()`：尝试获得对象的shared_ptr，若对象已销毁返回空shared_ptr，还存在返回对象的shared_ptr
+
+`shared_ptr`引用计数会造成循环计数问题，用`weak_ptr`解决
+
+```Cpp
+class B;
+class A{
+public:
+	//造成循环引用问题就把其中一个类的成员属性换成weak_ptr
+	shared_ptr<B> _ptr_B;
+	//weak_ptr<B> _ptr_B;
+};
+
+class B{
+public:
+	shared_ptr<A> _ptr_A;
+};
+```
+
 # 动态内存
 
 > 相较于malloc，new可以在创建对象时传参
@@ -1466,56 +1523,7 @@ MyClass::MyClass(MyClass&& a){    //拷贝数据
 	auto fun02=[fun01]{cout<<"hello"<<endl;};
 	```
 
-### 智能指针
 
-> 避免内存泄漏，头文件`<memory>`，由类模板实现
-
-自动回收内存，不用手动`delete`回收
-
-#### shared_ptr
-
-多个`shared_ptr`指针共用一块内存，使用引用计数机制，计数为0自动释放内存，空指针不计数
-
-- 成员函数`use_count()`返回计数
-
-##### 构建
-
-- `shared_ptr<int> p(new int(5));`，`new`分配
-- `shared_ptr<int> p=make_shared<int>(5);`，`make_shared`成员函数
-- `shared_ptr<int> p(p1);`，拷贝构造
-- `shared_ptr<int> p(move(p1))`，移动构造
-
-##### 释放
-
-需要在构造时时定释放规则
-
-- `shared_ptr<int> p(new int,default_delete<int>());`，使用默认释放规则，默认释放规则不能释放数组
-- `shared_ptr<int> p(new int[3],funct)`，`funct`为自定义释放规则函数
-
-#### unique_ptr
-
-每个`unique_ptr`指针不共享内存
-
-#### weak_ptr
-
-`weak_ptr`不会增加引用计数
-
-`shared_ptr`引用计数会造成循环计数问题，用`weak_ptr`解决
-
-```Cpp
-class B;
-class A{
-public:
-	//造成循环引用问题就把其中一个类的成员属性换成weak_ptr
-	shared_ptr<B> _ptr_B;
-	//weak_ptr<B> _ptr_B;
-};
-
-class B{
-public:
-	shared_ptr<A> _ptr_A;
-};
-```
 
 ### 可变参数模板
 
