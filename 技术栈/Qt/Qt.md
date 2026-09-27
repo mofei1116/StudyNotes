@@ -1599,8 +1599,8 @@ void PainterBase::base01() {
 
 QPainter的方法：
 - 点，线：
-	- drawPoint()，drawPoints：QPoint，QPointF
-	- drawLine()，drawLines：起点(x1,y1)，终点(x2,y2)
+	- drawPoint()，drawPoints()：QPoint，QPointF
+	- drawLine()，drawLines()：起点(x1,y1)，终点(x2,y2)
 	- drawPolyline()：QPointF点数组，不闭合
 - 几何面：
 	- drawRect()，drawRoundedRect()，drawEllipse()
@@ -1770,7 +1770,7 @@ void SeniorPainter::base02() {
 
 不动图形，动画布
 
-- translate(x,y)：平移坐标坐标轴
+- translate(x,y)：平移坐标轴
 - rotate(angle)：顺时针旋转坐标轴，angle表示度数
 - scale(x,y)：缩放坐标轴
 
@@ -2022,7 +2022,6 @@ Qt SQL模块提供对数据库的支持，该模块中的众多类分为3层：
 | SQL 接口层 | QSqlDatabase、QSqlQuery、QSqlError、QSqlField、QSqlIndex 和 QSqlRecord |
 | 驱动层 | QSqlDriver、QSqlDriverCreator、QSqlDriverCreatorBase、QSqlDriverPlugin 和 QSqlResult |
 
-在clion中使用sql模块，需要将Qt6Sql.dll库复制到可执行文件所在目录，将sqldrivers目录复制到plugins目录
 
 ## 数据库连接
 
@@ -2455,7 +2454,7 @@ void DBWidget::setMV() {
 }
 ```
 
-# 网络服务编程
+# Qt网络服务编程
 
 Qt的网络编程和传统的socket网络编程区别：
 - Qt基于事件循环的特点封装了由信号驱动的网络编程类

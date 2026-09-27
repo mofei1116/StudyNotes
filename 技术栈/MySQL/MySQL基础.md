@@ -69,7 +69,7 @@
 | `DATE` | YYYY-MM-dd，日期格式 | 1000-01-01 ~ 9999-12-31 |
 | `TIME` | HH:mm:ss，时间格式 | -838:59:59.000000 ~ 838:59:59.000000 |
 | `DATETIME` | YY-MM-dd HH:mm:ss | 1000-01-01 00:00:00.000000 ~ 9999-12-31 23:59:59.999999 |
-| `TIMESTAMP` | YYYY-MM-dd HH:mm:ss 格式表示的时间戳 | 1970-01-01 00:00:01.000000 ~ 2038-01-19 03:14:07.999999 |
+| `TIMESTAMP` | YYYY-MM-dd HH:mm:ss 格式表示的时间戳 | 1970-01-01 00:00:01.000000 ~ 2038-01-19 03:14:07.999999，`CURRENT_TIMESTAMP`表示当前时间，定义字段时`ON UPDATE CURRENT_TIMESTAMP`表示修改改行自动更新为当前时间 |
 | `YEAR` | YYYY 格式的年份值 | 1901~2155 |
 
 #### 字符串类型
@@ -1002,5 +1002,70 @@ int main(void) {
     mysql_close(mysql);
     system("pause");
     return 0;
+}
+```
+
+预编译sql语句并绑定参数案例：
+```Cpp
+#include <mysql/mysql.h>
+
+#include <cstdio>
+#include <cstring>
+#include <string>
+
+bool registerUser(MYSQL* mysql,
+                  const std::string& username,
+                  const std::string& passwd,
+                  bool isGroup)
+{
+    const char* sql =
+        "INSERT INTO t_user (f_username, f_passwd, f_isGroup) "
+        "VALUES (?, ?, ?)";
+
+    MYSQL_STMT* stmt = mysql_stmt_init(mysql);
+    if (stmt == nullptr) {
+        std::fprintf(stderr, "mysql_stmt_init: %s\n", mysql_error(mysql));
+        return false;
+    }
+
+    if (mysql_stmt_prepare(stmt, sql, std::strlen(sql)) != 0) {
+        std::fprintf(stderr, "mysql_stmt_prepare: %s\n",
+                     mysql_stmt_error(stmt));
+        mysql_stmt_close(stmt);
+        return false;
+    }
+
+    signed char groupValue = isGroup ? 1 : 0;
+
+    MYSQL_BIND params[3]{};
+
+    params[0].buffer_type = MYSQL_TYPE_STRING;
+    params[0].buffer = const_cast<char*>(username.c_str());
+    params[0].buffer_length =
+        static_cast<unsigned long>(username.size());
+
+    params[1].buffer_type = MYSQL_TYPE_STRING;
+    params[1].buffer = const_cast<char*>(passwd.c_str());
+    params[1].buffer_length =
+        static_cast<unsigned long>(passwd.size());
+
+    params[2].buffer_type = MYSQL_TYPE_TINY;
+    params[2].buffer = &groupValue;
+    params[2].is_unsigned = false;
+
+    bool ok = true;
+
+    if (mysql_stmt_bind_param(stmt, params) != 0) {
+        std::fprintf(stderr, "mysql_stmt_bind_param: %s\n",
+                     mysql_stmt_error(stmt));
+        ok = false;
+    } else if (mysql_stmt_execute(stmt) != 0) {
+        std::fprintf(stderr, "mysql_stmt_execute: %s\n",
+                     mysql_stmt_error(stmt));
+        ok = false;
+    }
+
+    mysql_stmt_close(stmt);
+    return ok;
 }
 ```

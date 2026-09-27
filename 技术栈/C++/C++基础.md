@@ -104,6 +104,27 @@ cout<<*p<<endl;
 
 `srand((unsigned)time(NULL));`
 
+## 时间
+
+### C风格
+
+- `time_t time(time_t* time);`：获取当前系统时间，是1970.1.1到现在的秒数
+- `struct tm* localtime(const time_t* time);`：获取tm结构体
+
+```Cpp title:"结构体"
+struct tm {
+  int tm_sec;   // 秒，正常范围从 0 到 59，但允许至 61
+  int tm_min;   // 分，范围从 0 到 59
+  int tm_hour;  // 小时，范围从 0 到 23
+  int tm_mday;  // 一月中的第几天，范围从 1 到 31
+  int tm_mon;   // 月，范围从 0 到 11
+  int tm_year;  // 自 1900 年起的年数
+  int tm_wday;  // 一周中的第几天，范围从 0 到 6，从星期日算起
+  int tm_yday;  // 一年中的第几天，范围从 0 到 365，从 1 月 1 日算起
+  int tm_isdst; // 夏令时
+};
+```
+
 # 函数
 
 ## 参数
@@ -140,6 +161,27 @@ int getSum(int num,...){    //num表示可变参数个数，是固定参数
 在定义时给参数一个默认值，若调用函数时没有给这个参数传值，则这个参数的值就是默认值；声明写了默认参数，定义就不要写默认参数了
 
 `void funct(int a,int b=10);`
+
+### 函数适配器
+
+头文件`<functional>`
+
+`std::bind()`用于将一个可调用对象与参数绑定创建一个新的可调用对象
+
+`std::placeholders::_1`表示参数的占位符，需要手动传入
+
+绑定成员函数时`std::bind()`的第二个参数需要传入对象指针
+
+```Cpp
+void my_funct(int a,int b,int c){
+	std::cout<<a<<" "<<b<<" "<<c<<std::endl;
+}
+
+void test01(){
+	auto new_funct=std::bind(my_funct,5,10,std::placeholders::_1);
+	new_fucnt(6);    //打印5 10 6
+}
+```
 
 ## 内联函数
 
@@ -286,6 +328,14 @@ void mySpace::funct2(int x){    //先声明再定义
 
 - `__PRETTY_FUNCTION__`：输出类名和函数名
 - `__LINE__`：输出代码所在行数
+
+## pragma
+
+- `#pragma once`：在头文件中使用，表示只被解析一次
+- `#prama pack(n)`：设置结构体或联合体的字节对齐方式，n是2的指数，最终结构体或联合体的填充方式取自然填充和n的较小值
+	- `#pragma pack(push,n)`：将当前的对齐值压入内部栈
+	- `#pragma pack(pop)`：从内部栈中弹出对齐值并设置该值
+	- `#pragma pack(1)`：抹除填充，常用于网络传输
 
 # 面向对象
 
