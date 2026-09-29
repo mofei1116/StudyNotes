@@ -238,10 +238,17 @@ void test01(){
 
 #### 释放
 
-需要在构造时时定释放规则
+可以在构造时时定释放规则
 
 - `shared_ptr<int> p(new int,default_delete<int>());`，使用默认释放规则，默认释放规则不能释放数组
 - `shared_ptr<int> p(new int[3],funct)`，`funct`为自定义释放规则函数
+
+主动释放：
+- `reset()`：放弃所有权，但指向的资源不一定释放
+
+#### enable_shared_from_this
+
+std::enable_shared_from_this模板类含有shared_from_this成员函数，若一个类T公开继承enable_shared_from_this<T\>，该类调用shared_from_this会返回一个指向当前对象的shared_ptr<T\>，用于管理对象的声明周期
 
 ### unique_ptr
 
@@ -1121,7 +1128,7 @@ rfind函数于find函数类似，只是从右往左查找
 
 - `insert({key,val})`，插入，返回`pair<set<int>::interator,bool>`表示插入结果
 - `myMap[key]=val`，插入
-- `erase(key)`，删除key对应的元素
+- `erase(key)`，删除key对应的元素，返回实际删除的个数（0或1）
 - `erase(map::iterator beg,map::iterator end)`，从beg删到end
 - `erase(map::iterator posi)`，删除posi位置的元素，返回下个元素的迭代器
 - `find(key)`，查找

@@ -314,6 +314,9 @@ flag|=O_NONBLOCK;    //添加非阻塞选项
 fcntl(fd,F_SETFL,flag);
 ```
 
+- `O_NONBLOCK`：非阻塞
+- `FD_CLOEXEC`：设置close-on-exec
+
 ## 文件处理函数
 
 - `int access(const char *pathname, int mode);`：判断当前进程对文件是否有权限或文件是否存在
@@ -426,6 +429,7 @@ fcntl(fd,F_SETFL,flag);
 			```
 		- 结构体的个数
 	- 返回值：成功返回写入的字节数，失败返回-1并置位错误码
+- `ssize_t readv(int _fd_, const struct iovec *_iov_, int _iovcnt_);`：将fd中的数据依次填充到缓冲区数组中
 
 ### 光标移动
 
