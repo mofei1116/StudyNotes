@@ -1,4 +1,4 @@
-# 解压缩类
+# 解压缩
 
 ## zlib
 
@@ -64,3 +64,72 @@
 			- `Z_FINISH`：输入结束
 	- 返回值：解压完成返回 `Z_STREAM_END`，仍需继续处理返回 `Z_OK`
 - `int deflateEnd(z_streamp strm);`：释放解压流资源
+
+# JSON
+
+## nlohmann/json
+
+头文件`nlohmann/json.hpp`
+
+`using json = nlohmann::json;`
+
+### 构造json
+
+json对象可以嵌套
+
+```Cpp
+json packet={
+	{"type","login"},
+	{"seq",1001},
+	{"success",true}
+	{"user",{
+		{"userId",66},
+		{"name","mofei"}
+		}
+	}
+	{"type",{"beta","phone"}}
+}
+```
+
+也可以使用`operator[]`
+
+### json对象转字符串
+
+- `dump()`返回json对象对应的JSON格式的字符串
+	- `dump(2)`：表示缩进2格
+
+### 字符串转json对象
+
+`json::prase(字符串)`：返回JSON格式的字符串对应的json对象
+
+### 访问
+
+访问字段或子json对象
+
+- `contains(字段名)`：返回字段是否存在
+- `at(字段名)`：返回字段值，字段必须存在
+- `get<T>()`：返回T类型的字段值
+	- `myJson.at("username").get<std::string>()`：获取username的字段值
+- `operator[]`：访问字段，字段不存在就添加
+- `value(字段名,值)`：字段存在就返回字段值，字段不存在就返回指定值
+
+### json和C++结构体转换
+
+```Cpp
+struct LoginRequest {
+    std::int64_t user_id;
+    std::string token;
+};
+
+void to_json(json& j, const LoginRequest& r) {
+    j = json{
+        {"user_id", r.user_id},
+        {"token", r.token}
+    };
+}
+
+void from_json(const json& j, LoginRequest& r) {
+    j.at("user_id").get_to(r.user_id);
+    j.at("token").get_to(r.token);
+}
+```

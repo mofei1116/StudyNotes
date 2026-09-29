@@ -925,6 +925,8 @@ linux安装接口库：
 
 头文件：`<mysql/mysql.h>`
 
+## 初始化和连接
+
 - `MYSQL mysql`：定义操作数据库的句柄
 - `MYSQL *mysql_init(MYSQL *mysql)`：初始化，失败返回nullptr
 	- 参数：数据库句柄地址，若mysql为空，分配并初始化，否则只初始化
@@ -940,17 +942,34 @@ linux安装接口库：
 		- 域套接字，不指定为nullptr
 		- 通常为0
 	- 返回值：失败返回nullptr
+
+## 执行sql语句
+
 - `int mysql_query(MYSQL *mysql, const char *query)`：执行sql语句
 	- 参数：
 		- 数据库句柄
 		- 要执行的sql语句
 	- 返回值：成功返回0，失败返回非0值
+- `uint64_t mysql_affected_rows(MYSQL *mysql)`：返回受影响的行数
+- `my_ulonglong mysql_insert_id(MYSQL *mysql)`：返回上一次插入语句产生的自增id（AUTO_INCREMENT）
+- `int mysql_next_result(MYSQL *mysql)`：读取查询结果，调用该函数后的连接状态相当于mysql_query或mysql_real_query
+	- 返回值：
+		- 0：还有result，需要调用mysql_store_result处理
+		- -1：没有更多的result
+		- >0：发生错误
 - `MYSQL_RES* mysql_store_result(MYSQL *mysql)`：获取结果集
 	- 参数：数据库句柄
 	- 返回值：`MYSQL_RES`类型的结果集，失败返回nullptr
+
+## 处理查询结果
+
 - `unsigned int mysql_num_fields(MYSQL_RES *result)`：获取列数
 - `unsigned int mysql_num_rows(MYSQL_RES *result)`：获取行数
-- `MYSQL_FIELD *mysql_fetch_fields(MYSQL_RES *result)`：获取列
+- `MYSQL_FIELD *mysql_fetch_fields(MYSQL_RES *result)`：获取列的数组
+	- `MYSQL_FIELD`是一个结构体
+		- `fields[i].name`：字段名
+		- `fields[i].type`：字段类型
+- `unsigned long * mysql_fetch_lengths(MYSQL_RES *result)`：返回字段值的长度数组
 - `MYSQL_ROW mysql_fetch_row(MYSQL_RES *result)`：获取一行，通过下标`row[0]`获取一行中的某一列
 - `void mysql_free_result(MYSQL_RES *result)`：释放结果集资源
 - `void mysql_close(MYSQL *mysql);`：关闭数据库
