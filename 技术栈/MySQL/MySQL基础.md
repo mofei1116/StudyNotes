@@ -14,8 +14,15 @@
 - 记录：能够描述一条数据的完整信息，即行
 - 字段：描述数据的不可分割的最小单位，即列
 
-连接数据库：`mysql -h MySQL的服务器IP -u 用户名 -p`
-修改root密码：`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '密码';`
+基本操作：
+
+- 连接数据库：`mysql -h MySQL的服务器IP -u 用户名 -p`，`-p`后面可以跟密码，但是不能能有空格
+- 修改root密码：`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '密码';`
+- 备份数据库：`mysqldump -h 主机ip -u 用户名 -p密码 -q -R --databases 要备份的数据库 | gzip > ${BACKUP_DIR}/${DATETIME}/${DATETIME}.sql.gz`：
+	- `-q`表示逐行读取并立即输出，而不是全部读进内存
+	- `-R`表示一并导出存储过程和函数
+
+在sql内部执行sql脚本：`SOURCE 脚本完整文件名`
 
 # SQL
 
@@ -155,6 +162,8 @@ MyISAM和InnoDB常用
 ## DQL
 
 > 数据查询语言（Data Query Language），查询数据
+
+在C++构造sql语句时要注意sql语句中的字符串要加引号，语句结尾有分号
 
 - 查询：`SELECT ALL 字段名1 AS 别名1[,字段名2 AS 别名2] FROM 表名 WHERE 条件;`
 	- `ALL`表示查询所有满足条件的记录，可以省略；若为`DISTINCT`表示去重
@@ -929,7 +938,7 @@ linux安装接口库：
 
 - `MYSQL mysql`：定义操作数据库的句柄
 - `MYSQL *mysql_init(MYSQL *mysql)`：初始化，失败返回nullptr
-	- 参数：数据库句柄地址，若mysql为空，分配并初始化，否则只初始化
+	- 参数：数据库句柄地址，传入的mysql必须为空
 	- 返回值：失败返回`nullptr`
 - `MYSQL* mysql_real_connect(MYSQL* myql,const char* host,const char* usr,const char* passwd,const char* db,unsigned int port,const char* unix_socket,unsigned long client_flag)`：连接数据库服务器
 	- 参数：
@@ -950,13 +959,14 @@ linux安装接口库：
 		- 数据库句柄
 		- 要执行的sql语句
 	- 返回值：成功返回0，失败返回非0值
-- `uint64_t mysql_affected_rows(MYSQL *mysql)`：返回受影响的行数
+- `int mysql_real_query(MYSQL *mysql, const char *stmt_str, unsigned long length)`：执行sql语句，指定sql语句的长度
+- `uint64_t mysql_affected_rows(MYSQL *mysql)`：返回受影响的行数，插入语句失败返回-1
 - `my_ulonglong mysql_insert_id(MYSQL *mysql)`：返回上一次插入语句产生的自增id（AUTO_INCREMENT）
 - `int mysql_next_result(MYSQL *mysql)`：读取查询结果，调用该函数后的连接状态相当于mysql_query或mysql_real_query
 	- 返回值：
 		- 0：还有result，需要调用mysql_store_result处理
 		- -1：没有更多的result
-		- >0：发生错误
+		- 0：发生错误
 - `MYSQL_RES* mysql_store_result(MYSQL *mysql)`：获取结果集
 	- 参数：数据库句柄
 	- 返回值：`MYSQL_RES`类型的结果集，失败返回nullptr
@@ -967,8 +977,8 @@ linux安装接口库：
 - `unsigned int mysql_num_rows(MYSQL_RES *result)`：获取行数
 - `MYSQL_FIELD *mysql_fetch_fields(MYSQL_RES *result)`：获取列的数组
 	- `MYSQL_FIELD`是一个结构体
-		- `fields[i].name`：字段名
-		- `fields[i].type`：字段类型
+		- `fields[i].name`：字段名，是`char*`类型
+		- `fields[i].type`：字段类型，是`enum enum_field_types`类型
 - `unsigned long * mysql_fetch_lengths(MYSQL_RES *result)`：返回字段值的长度数组
 - `MYSQL_ROW mysql_fetch_row(MYSQL_RES *result)`：获取一行，通过下标`row[0]`获取一行中的某一列
 - `void mysql_free_result(MYSQL_RES *result)`：释放结果集资源

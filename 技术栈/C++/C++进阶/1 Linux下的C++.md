@@ -34,8 +34,8 @@ sudo yum remove cmake
 ## 一步到位
 
 ```shell
-g++ -o build hello.cpp    //生成名为build的可执行文件
-g++ hello.cpp    //默认生成名为a.out的可执行文件
+g++ -o build hello.cpp
+g++ hello.cpp
 ```
 
 ## 分步编译
@@ -205,6 +205,7 @@ clear:
 
 - `make`：默认从第一个目标开始执行，直到解决所有依赖
 - `make 目标`：从指定的目标开始执行，直到解决所有依赖
+- `make -qp 目标`：列出目标的规则和依赖
 
 ### 规则
 

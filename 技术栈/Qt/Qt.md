@@ -37,8 +37,6 @@ Qt框架下开发的程序的可执行文件需要依赖Qt提供的库文件，�
 
 双击ui文件打开UI设计器
 
-spacers弹簧可以实现居中效果
-
 ## 信号和槽
 
 元对象系统MOC实现信号和槽
@@ -920,6 +918,8 @@ void InnerLabel::mousePressEvent(QMouseEvent *ev) {
 
 ## 事件的传递
 
+从子对象传递到父对象
+
 - `void QEvent::ignore()`：忽略事件，一般在事件处理函数中调用
 - `void QEvent::accept()`：接收事件，默认
 
@@ -928,6 +928,8 @@ void InnerLabel::mousePressEvent(QMouseEvent *ev) {
 ![[Pasted image 20260920191206.png]]
 
 ## 事件过滤
+
+从父对象过滤到子对象
 
 - `void QObject::installEventFilter(QObject *filterObj)`：由子对象调用，安装在父对象上（参数传父对象），由父对象重写过滤行为eventFilter
 - `bool QObject::eventFilter(QObject *watched, QEvent *event)`：针对对象watched屏蔽事件event
@@ -1236,7 +1238,9 @@ QThread类管理线程
 
 ## QThread类
 
-调用QThread::start()启动线程，需要绑定finished()信号实现线程回收deleteLater()，使用信号和槽实现更改控件
+调用QThread::start()启动线程，重写QThread::run()线程体
+
+需要绑定finished()信号实现线程回收deleteLater()，使用信号和槽实现更改控件
 
 ```Cpp title:"ErrorForm.h"
 #ifndef THREADBASE_ERRORFORM_H  
@@ -2009,6 +2013,177 @@ MainWidget::MainWidget(QWidget *parent):QWidget(parent){
 }
 ```
 
+# MVD模型
+
+MVD模型：
+- 模型（Model）：应用对象，用来表示数据，模型与数据源进行通信
+- 视图（View）：模型的用户界面，用来显示数据，从模型中获得模型索引（Model Index），用来表示数据项
+- 委托（Delegaete）：代理，可以定制数据的渲染和编辑方式
+
+![[Pasted image 20260922211513.png | MVD]]
+
+模型，视图，委托通过**信号和槽**进行通信：
+
+- 来自模型的信号会将数据源中数据的变更通知给视图
+- 来自视图的信号提供用户与所显示项目交互的相关信息
+- 来自委托的信号在编辑过程中用于向模型和视图通报编辑器的状态
+
+## 模型
+
+所有模型（Model）基于QAbstractItemModel类
+
+现成的模型：
+
+- QAbstractListModel：适合实现列表类数据结构
+- QAbstractTableModel：适合实现表格类数据结构
+- QRangeModel：无需创建子类，将现有的C++容器适配到模型中
+
+### 模型索引
+
+模型索引确保数据的**表示形式**与**访问方式**分离，视图和委托通过模型索引请求要显示的数据项
+
+模型索引类QModelIndex
+
+由于模型不定时**重组**内部结构导致模型索引可能**失效**，因此不应该存储模型索引，除非使用QPersistModelIndex
+
+模型索引本身包含一个指向创建该索引的模型的指针：
+
+`const QAbstractItemModel *model = index.model();`
+
+获取模型索引：
+
+- 提供行与列：`QModelIndex index = model->index(row, column /*...*/);`
+- 提供父模型索引：`QModelIndex index = model->index(row, column, parent);`，无父节点一般指定`QModelIndex()`
+
+### 项的角色
+
+项的角色允许在不同情况下提供不同类型的数据
+
+可以通过指定模型的**模型索引**，**项的角色**来获得项的数据：
+
+`QVariant value = model->data(index, role);`或`QVariant value = index.data(role)`
+
+模型通过模型索引和项的角色设置值：
+
+`model->setData(index, value, role)`
+
+Qt::ItemDataRole中定义标准的角色，如：
+
+- Qt::DisplayRole：文本形式渲染数据（QString）
+- Qt::EditRole：适合在编辑器中编辑的数据（QString）
+
+## 视图
+
+视图基于QAbstractItemView抽象基类
+
+完整的视图：
+
+- QListView：显示项目列表
+- QTableView：表格形式显示
+- QTreeView：树状形式显示
+
+构建并设置模型：
+
+```Cpp
+QListView *view = new QListView;
+view->setModel(model);
+```
+
+显示模型：
+
+`view->show();`
+
+处理项目选择：
+
+QItemSelectionModel提供了处理视图内项目选择的机制，通过`selectionModel()`获取正在使用的选择模型，`setSelectionModel()`替换选择模型
+
+## 委托
+
+委托基于抽象基类QAbstractItemDelegate，默认的委托实现由QStyleItemDelegate提供
+
+委托类可以用`paint()`和`sizeHint()`函数来渲染内容，简单的委托可以通过继承QStyleItemDelegate类利用其的默认实现
+
+### 继承QStyleItemDelegate
+
+```Cpp
+class SpinBoxDelegate : public QStyledItemDelegate
+{
+    Q_OBJECT
+
+public:
+    SpinBoxDelegate(QObject *parent = nullptr);
+
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option,
+                          const QModelIndex &index) const override;
+
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+    void setModelData(QWidget *editor, QAbstractItemModel *model,
+                      const QModelIndex &index) const override;
+
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option,
+                              const QModelIndex &index) const override;
+};
+
+SpinBoxDelegate::SpinBoxDelegate(QObject *parent)
+    : QStyledItemDelegate(parent)
+{
+}
+```
+
+### 提供编辑器
+
+```Cpp
+QWidget *SpinBoxDelegate::createEditor(QWidget *parent,
+                                       const QStyleOptionViewItem &/* option */,
+                                       const QModelIndex &/* index */) const
+{
+    QSpinBox *editor = new QSpinBox(parent);
+    editor->setFrame(false);
+    editor->setMinimum(0);
+    editor->setMaximum(100);
+
+    return editor;
+}
+```
+
+### 数据更新到编辑器
+
+```Cpp
+void SpinBoxDelegate::setEditorData(QWidget *editor,
+                                    const QModelIndex &index) const
+{
+    int value = index.data(Qt::EditRole).toInt();
+
+    QSpinBox *spinBox = static_cast<QSpinBox*>(editor);
+    spinBox->setValue(value);
+}
+```
+
+### 数据提交到模型
+
+```Cpp
+void SpinBoxDelegate::setModelData(QWidget *editor, QAbstractItemModel *model,
+                                   const QModelIndex &index) const
+{
+    QSpinBox *spinBox = static_cast<QSpinBox*>(editor);
+    spinBox->interpretText();
+    int value = spinBox->value();
+
+    model->setData(index, value, Qt::EditRole);
+}
+```
+
+### 更改编辑器的形状
+
+```Cpp
+void SpinBoxDelegate::updateEditorGeometry(QWidget *editor,
+                                           const QStyleOptionViewItem &option,
+                                           const QModelIndex &/* index */) const
+{
+    editor->setGeometry(option.rect);
+}
+```
+
 # Qt数据库编程
 
 Qt SQL模块提供对数据库的支持，该模块中的众多类分为3层：
@@ -2115,14 +2290,7 @@ void queryTable(QSqlDatabase& db) {
 }
 ```
 
-## MVD模型
-
-MVD模型：
-- 模型（Model）：应用对象，用来表示数据，模型于数据源进行通信
-- 视图（View）：模型的用户界面，用来显示数据，从模型中获得模型索引（Model Index），用来表示数据项
-- 委托（Delegaete）：代理，可以定制数据的渲染和编辑方式
-
-![[Pasted image 20260922211513.png | MVD]]
+## 数据库MVD
 
 除了QSqlQuery，Qt提供了3个更高级的类来访问数据库：QSqlQueryModel，QSqlTableMode，QSqlRelationalTableModel（针对有外键）
 
@@ -2552,6 +2720,8 @@ void UDPWin::on_bntSend_clicked() {
 
 ## TCP服务编程
 
+### 服务器端
+
 QTcpServer：
 - listen()：启动监听
 - isListening()：判断是否在监听
@@ -2563,9 +2733,6 @@ QTcpServer：
 	- write()写入套接字
 	- disconnected()信号：连接已断开
 	- state()获取连接状态
-
-客户端使用connectToHost()连接服务器端
-
 
 ```Cpp title:"tcpWin.h"
 #ifndef TCPTEST_TCPWIN_H  
@@ -2680,3 +2847,12 @@ void TcpWin::on_bntClose_clicked() {
     ui->bntStart->setEnabled(true);    //打开bntStart按钮  
 }
 ```
+
+### 客户端
+
+- 信号：`connected()`，`readyRead()`，`disconnected()`，`errorOccured()`
+- `void QAbstractSocket::connectToHost(const QString &hostName, quint16 port, QIODeviceBase::OpenMode openMode = ReadWrite, QAbstractSocket::NetworkLayerProtocol protocol = AnyIPProtocol)`：连接服务器
+- `bool QAbstractSocket::waitForConnected(int msecs = 30000)`：等待套接字连接
+- `void QAbstractSocket::disconnectFromHost()`：断开连接
+- `QByteArray QIODevice::readAll()`读取所有可读的数据
+- `qint64 QIODevice::write(const char *data, qint64 maxSize)`写入套接字

@@ -40,6 +40,9 @@
 - `:wq`，保存并退出，`:wp!`，强制保存退出
 - `:q`，退出
 - 查找：`/`进入命令行模式后直接输入要查找的关键词，输入`n`查找下一个，`N`查找上一个
+	- `/Hello\c`：大小写不敏感查找Hello
+	- `/Hellok\C`：大小写敏感查找Hello
+- 替换：`:%s/被替换的文本/用来替换的文本/gc`：`g`表示一行内全部替换，`c`表示每次替换前确认
 - `set nu`，设置行号
 - `set nonu`，取消行号
 
@@ -63,6 +66,10 @@
 7. 输入`touch /.autorelabel`，回车
 8. 输入`exec /sbin/init`，回车，然后系统自动重启
 
+## 查看Linux发行版
+
+`cat /etc/os-release`
+
 # 用户管理
 
 ## 用户
@@ -79,7 +86,7 @@
 - `userdel -r 用户名`，删除用户及其主目录
 - `id 用户名`，查询用户信息
 - `su - 用户名`，切换用户
-- `logout`/`eixt`，回到原来的用户，`logout`在运行级别3下有效
+- `logout`/`exit`，回到原来的用户，`logout`在运行级别3下有效
 - `whoami`，查看当前用户
 
 ## 用户组
@@ -106,8 +113,7 @@
 
 切换运行级别：
 - `init 运行级别`，运行级别为数字
-- `systemctl isolate <target>`
-
+- `systemctl isolate <target>`切换运行级别
 - `multi-user.target`：运行级别3
 - `graphical.target`：运行级别5
 - `systemctl get-default`，查看默认运行级别
@@ -168,7 +174,7 @@
 	- `ls -l > 文件名`
 	- `cat 文件名 > 文件名`
 	- `echo 内容 > 文件名`
-- `>> 目标文件名`：覆盖写入
+- `>> 目标文件名`：追加写入
 - `ln [选项] 原文件或目录 目标链接名`：创建链接，默认是硬链接，inode号相同，即文件正文相同
 	- `-s`：软链接，符号链接，文件正文存储目标文件的路径信息，原文件改名后软连接会失效
 - `scp [选项] 源文件 目标路径`：基于ssh登录的远程拷贝数据
@@ -195,6 +201,7 @@
 	- `date -s "2026-6-20 21:15:10"`：设置系统时间
 - `cal`：显示本月日历
 	- `cal 2026`：显示2026年日历
+- `|`：管道符，将前一个命令的处理结果输出传递给后面的命令处理
 
 ## 查找相关
 
@@ -204,7 +211,6 @@
 	- `-size 文件大小`：按文件文件大小查找，`+`大于`-`小于，`-size +200M`大于200M的文件
 - `locate 文件名`：根据locate数据库快速定位文件路径
 	- `updatedb`：更新locate数据库，管理员需要定期更新，第一次运行前需要更新
-- `|`：管道符，将前一个命令的处理结果输出传递给后面的命令处理
 - `grep [选项] 查找内容 源文件`：过滤查找
 	- `-n`：显示行号
 	- `-i`：忽略字母大小写
@@ -850,7 +856,45 @@ done
 - 通过位置参数获取函数参数
 - 函数调用：`函数名 参数`
 
-#### 备份数据库
+## 备份数据库
+
+1. 写脚本
+```shell title:"/usr/sbin/mysql_db_backup.sh"
+#!/bin/bash
+
+# 定义备份的目录
+BACKUP_DIR=/data/backup/db
+# 获取当前系统时间
+DATETIME=$(date "+%Y-%m-%d_%H%M%S")
+# 数据库的主机地址
+DB_HOST=localhost
+# 数据库的登录用户名
+DB_USER=root
+# 数据库登录的密码
+DB_PASSWD="root"
+# 要备份的数据库名
+BACKUP_DB=test
+
+# 创建备份目录
+if [ ! -d "${BACKUP_DIR}/${DATETIME}" ]
+then
+    mkdir -p "${BACKUP_DIR}/${DATETIME}"
+fi
+
+# 备份数据库
+mysqldump -h ${DB_HOST} -u ${DB_USER} -p${DB_PASSWD} -q -R --databases ${BACKUP_DB} | gzip > ${BACKUP_DIR}/${DATETIME}/${DATETIME}.sql.gz
+
+# 将文件打包成tar.gz的形式
+cd ${BACKUP_DIR}
+tar -zcvf ${DATETIME}.tar.gz ${DATETIME}
+# 删除对应目录
+rm -rf ${DATETIME}
+
+# 删除10天前的备份文件
+find ${BACKUP_DIR} -atime +10 -name "*.tar.gz" -exec rm -rf {} \;
+echo "数据库${BACKUP_DB}备份成功..."
+```
+2. 设置crond定时任务：`30 2 * * * /usr/sbin/mysql_db_backup.sh`
 
 
 # 日志管理

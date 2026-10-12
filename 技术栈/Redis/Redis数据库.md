@@ -112,7 +112,7 @@ NoSQL：Not Only SQL，泛指非关系型数据库，不依赖于业务逻辑，
 - 关闭Redis服务：`./redis-cli shutdown`
 	- 若redis是多实例，可以指定端口号关闭：`redis-cli -p 6379 shutdown`
 
-# 常用数据类型操作
+# 常用数据类型
 
 ## 基于key的操作
 
@@ -241,7 +241,7 @@ zset是没有重复元素的string集合，每个成员都关联了一个score�
 
 ## GENERAL通用
 
-- `daemonize`：`yes`表示前台运行，`no`表示后台运行
+- `daemonize`：`yes`表示后台运行，`no`表示前台运行
 - `pidfile`：存放redis运行的pid
 - `loglevel`：日志级别，默认为`notice`
 - `logfile`：日志文件路径
@@ -449,8 +449,8 @@ fork得到子进程处理重写
 
 原理：
 - slave连接master后发送sync命令，master接收命令后启动后台存盘进程，执行完成后将数据文件发送给slave
-- 全量复制：slave接收数据后存盘并加载到内存
-- 增量复制：master将新的修改命令发送给slave，完成同步
+- **全量复制**：slave接收数据后存盘并加载到内存
+- **增量复制**：master将新的修改命令发送给slave，完成同步
 - slave连接master后，自动执行一次全量复制
 
 ### 薪火相传

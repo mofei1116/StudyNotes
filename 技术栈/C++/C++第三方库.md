@@ -91,7 +91,9 @@ json packet={
 }
 ```
 
-也可以使用`operator[]`
+也可以使用`operator[]`逐个添加字段
+
+`nlohmann::json::array()`：创建数组，如`packet["teams"]=nlohmann::json::array()`
 
 ### json对象转字符串
 
@@ -102,9 +104,11 @@ json packet={
 
 `json::prase(字符串)`：返回JSON格式的字符串对应的json对象
 
+解析失败抛出`nlohmann::json::parse_error`异常
+
 ### 访问
 
-访问字段或子json对象
+访问字段，字段值也可能是json
 
 - `contains(字段名)`：返回字段是否存在
 - `at(字段名)`：返回字段值，字段必须存在
@@ -112,6 +116,18 @@ json packet={
 	- `myJson.at("username").get<std::string>()`：获取username的字段值
 - `operator[]`：访问字段，字段不存在就添加
 - `value(字段名,值)`：字段存在就返回字段值，字段不存在就返回指定值
+
+### 类型判断
+
+- `is_null()`：判断是否为 JSON `null`
+- `is_boolean()`：判断是否为布尔值
+- `is_number()`：判断是否为数字
+- `is_number_integer()`：判断是否为整数
+- `is_number_unsigned()`：判断是否为无符号整数
+- `is_number_float()`：判断是否为浮点数
+- `is_string()`：判断是否为字符串
+- `is_array()`：判断是否为数组
+- `is_object()`：判断是否为对象
 
 ### json和C++结构体转换
 

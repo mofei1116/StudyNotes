@@ -187,7 +187,7 @@ session保存在服务器端，通过唯一的sessionID查找对应的session，
 	- `Connection`：`keep-alive`为长连接，`close`为短连接
 	- `Content-length`：实体主体长度
 	- `Host`：主机ip
-	- `Set-Cookie`：后面的指为cookie
+	- `Set-Cookie`：后面的值为cookie
 
 ![[请求报文实例.jpg]]
 
