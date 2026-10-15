@@ -1188,7 +1188,8 @@ void KeyWidget::keyPressEvent(QKeyEvent *event) {
 
 #### 事件处理机制
 
-- `int QObject::startTimer(int interval, Qt::TimerType timerType = Qt::CoarseTimer)`：启动一个定时器，返回计时器的id，失败返回0，周期为interval毫秒，调用`killTimer(id)`删除定时器
+- `int QObject::startTimer(int interval, Qt::TimerType timerType = Qt::CoarseTimer)`：启动一个定时器，返回计时器的id，失败返回0，周期为interval毫秒，
+- `killTimer(id)`：删除定时器
 - `void QObject::timerEvent(QTimerEvent *event)`：定时器到时事件的事件处理函数
 
 ```Cpp title:"timerEvent()"

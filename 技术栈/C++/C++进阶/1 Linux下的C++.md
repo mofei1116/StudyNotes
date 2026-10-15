@@ -75,6 +75,12 @@ g++ hello.cpp
 	- `print &i`：打印变量i的地址信息
 - `set variable i=10`：设置变量`i`的值为10
 
+多线程调试：
+- `info threads`：展示当前所有线程
+- `thread 1`：切换至线程1
+- `set scheduler-locking on`：锁定当前线程
+- `set scheduler-locking off`：取消锁定当前线程
+
 ## 使用技巧
 
 - `shell 终端指令`：在gdb中执行shell指令
