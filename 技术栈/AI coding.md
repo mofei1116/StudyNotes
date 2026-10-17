@@ -8,3 +8,4 @@
 - Context（上下文）：大模型每次处理任务时所收到的信息总和
 - Context Window（上下文窗口）：Context能容纳的最大Token数量
 - Prompt（提示词）：给LLM的指令或提示
+- Tool（工具）：给LLM提供感知外部的能力
