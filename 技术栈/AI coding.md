@@ -85,6 +85,24 @@ SPEC（Technical Specification）
 - `/model`：切换模型
 - `/help`：查看帮助
 - `/status`：查看配置和使用情况
+- `/init`：创建项目级CLAUDE.md，一般在项目有一定规模的基础上使用
+- `/compact`：压缩上下文
+- `/clear`：清空当前会话
+- `/context`：详细查看上下文占比
+- `/memory`：自动记忆
+- `/cost`：
+
+### 七层扩展
+
+1. **CLAUDE.md**：项目说明书，每次会话自动加载
+2. **Hooks**：事件触发器，在特定时机自动执行
+3. **Skills**：专业知识包，AI 按需加载
+4. **Plugins**：把 Skills + Hooks + MCP 打包分发
+5. **LSP**：给 AI 装上 IDE 级的代码导航
+6. **MCP**：连接外部工具和数据源
+7. **子 Agent**：独立上下文并行干活
+
+前三层是基础配置，后四层是高级扩展
 
 ### 配置文件
 
@@ -136,9 +154,17 @@ SPEC（Technical Specification）
 - 运行中切换：`\model [模型]`
 - 配置文件settings.json中：`"model": "模型"`
 
-### CLAUDE.md
+### 三层记忆体系
 
-```markdown title:"模板"
+#### CLAUDE.md
+
+CLAUDE.md有三层优先级，会同时生效，不冲突：
+
+1. 全局级：`~/.claude/CLAUDE.md`，个人习惯，身份，偏好
+2. 项目级：`项目根目录/CLAUDE.md`，技术栈，架构，规范，进度
+3. 文件级：`子目录/CLAUDE.md`，专属约定
+
+```markdown title:"项目"
 # 项目名称
 项目名
 
@@ -186,11 +212,7 @@ src/
 - 所有新功能先创建 Git 分支再开发
 ```
 
-CLAUDE.md有三层优先级，会同时生效，不冲突：
-
-1. 全局：`~/.claude/CLAUDE.md`，个人习惯，身份，偏好
-
-```markdown
+```markdown title:"全局"
 # 沟通方式
 
 - 默认中文回复；代码、命令、变量名、文件路径保持英文
@@ -214,3 +236,36 @@ CLAUDE.md有三层优先级，会同时生效，不冲突：
 - 公开发布（npm publish、生产部署等）
 
 ```
+
+#### Auto Memory
+
+命令`/memory`
+
+Auto Memory是Claude Code在执行任务过程中记下的设计笔记
+
+记录的信息：
+
+1. `user`：用户的角色，偏好
+2. `feedback`：用户给过的反馈
+3. `project`：项目相关
+4. `reference`：外部资源索引
+
+CLAUDE.md是第一优先级，明确的规则，Auto Memory是第二优先级，隐式规则
+
+#### 专项参考文档
+
+为避免大量文本都写在CLAUDE.md文件，在CLAUDE.md中加上外部的md文件的索引：
+
+```markdown
+## 外部参考文档
+
+- 修改前端视觉、调颜色、调间距时 → 必读 `docs/brand-visual.md`
+- 写产品文案、按钮文字、提示语时 → 必读 `docs/copywriting-style.md`
+- 写 API 、定义返回格式时 → 必读 `docs/api-conventions.md`
+```
+
+Claude Code在需要时再查外部文档
+
+#### .claudeignore文件
+
+类似于`.gitignore`文件，指定不需要关注的目录或文件
